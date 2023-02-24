@@ -1,0 +1,20 @@
+.navbar{
+    margin-bottom: 0;
+    background-color: #202020;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 1.98rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.user{
+    color: #fff;
+}
+
+.user:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+  

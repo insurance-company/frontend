@@ -25,7 +25,8 @@ export class TokenInterceptor implements HttpInterceptor {
       })
     }
 
-    return next.handle(request).pipe(
+    return next.handle(request)
+    /*.pipe(
       catchError((err) => {
         if(err instanceof HttpErrorResponse) {
           if (err.error === 401) {
@@ -35,6 +36,6 @@ export class TokenInterceptor implements HttpInterceptor {
         }
         return throwError(() => new Error("Some other error occured"))
       })
-    );
+    );*/
   }
 }

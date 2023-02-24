@@ -13,6 +13,9 @@ import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DisplayBuyersComponent } from './components/display-buyers/display-buyers.component';
+import { SharedModule } from './components/shared/shared.module';
+import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
+import { FilijaleComponent } from './components/filijale/filijale.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { DisplayBuyersComponent } from './components/display-buyers/display-buye
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    DisplayBuyersComponent
+    DisplayBuyersComponent,
+    PaketiPomociComponent,
+    FilijaleComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import { DisplayBuyersComponent } from './components/display-buyers/display-buye
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgToastModule
+    NgToastModule,
+    SharedModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -24,10 +24,10 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.auth.login(this.loginForm.value).subscribe({
       next: (res) => {
-        this.toast.success({detail: "SUCCESS", summary: res.message, duration: 5000});
         this.auth.storeToken(res.token)
-        this.router.navigate(['dashboard'])
-
+        this.router.navigate(['/dashboard']).then(() => {
+          window.location.reload();
+        })
       },
       error: (err) => {
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});
