@@ -6,15 +6,17 @@ import { FilijaleComponent } from './components/filijale/filijale.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
 import { RegisterComponent } from './components/register/register/register.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'registracija', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path: 'display-buyers', component: DisplayBuyersComponent},
   {path: 'paketi-pomoci', component: PaketiPomociComponent},
-  {path: 'filijale', component: FilijaleComponent}
+  {path: 'filijale', component: FilijaleComponent},
+  {path: 'profil', component:UserProfileComponent}
 ];
 
 @NgModule({
