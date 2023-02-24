@@ -1,0 +1,21 @@
+<div class="table">
+    <mat-table #table [dataSource]="paketiPomoci">
+      <ng-container matColumnDef="tip">
+        <mat-header-cell *matHeaderCellDef>Tip</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.tip }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="cena">
+        <mat-header-cell *matHeaderCellDef>Cena</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.cena }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pokrice">
+        <mat-header-cell *matHeaderCellDef>Pokrice</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.pokrice }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="trajanjeUMesecima">
+        <mat-header-cell *matHeaderCellDef>Trajanje u mesecima</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.trajanjeUMesecima }}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>

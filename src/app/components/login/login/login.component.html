@@ -1,0 +1,20 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Log in</mat-card-title>
+      </mat-card-header>
+      <form class="example-form" [formGroup]="loginForm">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input formControlName="email" matInput placeholder="Email">
+          </mat-form-field>
+          <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email is required</small>
+          <mat-form-field class="example-full-width">
+            <input formControlName="password" type="password" matInput placeholder="Password">
+          </mat-form-field>
+          <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">Password is required</small>
+        </mat-card-content>
+        <button (click)="onSubmit()" [disabled]="loginForm.invalid" mat-stroked-button color="accent" class="btn-block">Log in</button>
+      </form>
+    </mat-card>
+  </div>
