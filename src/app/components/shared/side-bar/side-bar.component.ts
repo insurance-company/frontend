@@ -7,10 +7,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
+  isLoggedIn: boolean = false
   userRole: string = ""
   constructor(private auth: AuthService){
   }
   ngOnInit(): void {
-    this.userRole = this.auth.getRole()
+    this.isLoggedIn = this.auth.isLoggedIn()
+    if (this.isLoggedIn){
+      this.userRole = this.auth.getRole()
+    }
   }
 }
