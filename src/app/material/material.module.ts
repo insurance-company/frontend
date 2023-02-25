@@ -20,6 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -44,6 +45,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatRadioModule,
     MatMenuModule,
     MatDividerModule,
+    MatPaginatorModule
   ],
   exports: [
     CommonModule,
@@ -67,6 +69,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatMenuModule,
     MatDividerModule,
     MatBottomSheetModule,
+    MatPaginatorModule
   ],
 })
 export class MaterialModule {}

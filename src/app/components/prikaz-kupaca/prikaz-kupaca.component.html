@@ -1,0 +1,27 @@
+<mat-table #table [dataSource]="kupci">
+    <ng-container matColumnDef="ime">
+        <mat-header-cell *matHeaderCellDef>Ime i prezime</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.ime }} {{ item.prezime }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="jmbg">
+        <mat-header-cell *matHeaderCellDef>JMBG</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.jmbg }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="brojTelefona">
+        <mat-header-cell *matHeaderCellDef>Broj telefona</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.brojTelefona }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.email }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator
+  [pageSize]="4"
+  [length]="totalCount"
+  (page)="onPageChanged($event)"
+  [pageIndex]="pageNumber"
+  >
+</mat-paginator>

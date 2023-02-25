@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getAllBuyers() : Observable<any>{
-    return this.http.get<any>('https://localhost:7213/api/User')
+  getAllBuyers(pageNumber: number) : Observable<any>{
+    return this.http.get<any>('https://localhost:7213/api/User/getAllBuyers/' + pageNumber + '/4')
   }
 }
