@@ -51,7 +51,14 @@ export class AuthService {
   }
 
   getFullName() {
-    console.log(this.userPayload)
     return this.userPayload.name
+  }
+
+  getLoggedUserId(){
+    return this.userPayload.id
+  }
+
+  getRole(){
+    return this.userPayload.role
   }
 }

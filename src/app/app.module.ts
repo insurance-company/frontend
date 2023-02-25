@@ -17,6 +17,8 @@ import { SharedModule } from './components/shared/shared.module';
 import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
 import { FilijaleComponent } from './components/filijale/filijale.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { PrikazKorisnikovihNesrecaComponent } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.component';
+import { PrikazKorisnikovihNesrecaModule } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     HttpClientModule,
     ReactiveFormsModule,
     NgToastModule,
-    SharedModule
+    SharedModule,
+    PrikazKorisnikovihNesrecaModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
