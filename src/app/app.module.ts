@@ -12,13 +12,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DisplayBuyersComponent } from './components/display-buyers/display-buyers.component';
 import { SharedModule } from './components/shared/shared.module';
 import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
 import { FilijaleComponent } from './components/filijale/filijale.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { PrikazKorisnikovihNesrecaComponent } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.component';
 import { PrikazKorisnikovihNesrecaModule } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.module';
+import { ValidacijaNesrecaModule } from './components/nesreca/validacija-nesreca/validacija-nesreca.module';
+import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { PrikazKorisnikovihNesrecaModule } from './components/nesreca/prikaz-kor
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    DisplayBuyersComponent,
+    PrikazKupacaComponent,
     PaketiPomociComponent,
     FilijaleComponent,
     UserProfileComponent
@@ -40,7 +41,8 @@ import { PrikazKorisnikovihNesrecaModule } from './components/nesreca/prikaz-kor
     ReactiveFormsModule,
     NgToastModule,
     SharedModule,
-    PrikazKorisnikovihNesrecaModule
+    PrikazKorisnikovihNesrecaModule,
+    ValidacijaNesrecaModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

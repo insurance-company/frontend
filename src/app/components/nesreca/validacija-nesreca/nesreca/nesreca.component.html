@@ -8,10 +8,8 @@
         <mat-panel-description>
           Oznaka auta: {{ nesreca.auto.registarskiBroj }}
         </mat-panel-description>
-        <mat-panel-description>
-          Status: {{nesreca.status}}
-        </mat-panel-description>
       </mat-expansion-panel-header>
+      <p>Vlasnik: {{nesreca.auto.vlasnik.ime}} {{nesreca.auto.vlasnik.prezime}}, {{nesreca.auto.vlasnik.jmbg}}</p>
       <p>Opis: {{ nesreca.opis }}</p>
     </mat-expansion-panel>
   </mat-accordion>

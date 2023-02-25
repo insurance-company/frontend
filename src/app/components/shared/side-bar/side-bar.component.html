@@ -2,4 +2,6 @@
     <div routerLink='paketi-pomoci' class="sidebar-option">PAKETI POMOCI</div>
     <div routerLink='filijale' class="sidebar-option">FILIJALE</div>
     <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='User'">NESRECE</div>
+    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='Menadzer'">PRIJAVLJENE NESRECE</div>
+    <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='Menadzer' || userRole == 'Agent'">KUPCI</div>
 </div>
