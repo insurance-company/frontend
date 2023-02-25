@@ -1,20 +1,21 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Log in</mat-card-title>
+        <mat-card-title>Prijava</mat-card-title>
       </mat-card-header>
       <form class="example-form" [formGroup]="loginForm">
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input formControlName="email" matInput placeholder="Email">
           </mat-form-field>
-          <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email is required</small>
+          <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email je obavezan</small>
           <mat-form-field class="example-full-width">
-            <input formControlName="password" type="password" matInput placeholder="Password">
+            <input formControlName="password" type="password" matInput placeholder="Sifra">
           </mat-form-field>
-          <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">Password is required</small>
+          <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">Sifra je obavezna</small>
         </mat-card-content>
-        <button (click)="onSubmit()" [disabled]="loginForm.invalid" mat-stroked-button color="accent" class="btn-block">Log in</button>
+        <button (click)="onSubmit()" [disabled]="loginForm.invalid" mat-stroked-button color="accent" class="btn-block">Prijavi se</button>
       </form>
+     <a href="./registracija" class="register">Registruj se</a>
     </mat-card>
   </div>

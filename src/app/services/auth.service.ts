@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   private baseUrl = "https://localhost:7213/api/User/"
-  constructor(private http: HttpClient, private router: Router) { }
+  private userPayload: any
+  constructor(private http: HttpClient, private router: Router) {
+    this.userPayload = this.decodeToken()
+   }
 
   register(userObj: any){
     return this.http.post<any>('https://localhost:7213/api/User/register', userObj)
@@ -34,5 +38,20 @@ export class AuthService {
   signOut(){
     localStorage.clear()
     this.router.navigate(['login'])
+  }
+
+  decodeToken(){
+    const jwtHelper = new JwtHelperService()
+    const token = this.getToken()!
+    return jwtHelper.decodeToken(token)
+  }
+
+  getCurrentUser() : Observable<any>{
+    return this.http.get<any>('https://localhost:7213/api/User/getById/' + this.userPayload.id)
+  }
+
+  getFullName() {
+    console.log(this.userPayload)
+    return this.userPayload.name
   }
 }

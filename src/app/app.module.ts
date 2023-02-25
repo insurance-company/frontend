@@ -16,6 +16,7 @@ import { DisplayBuyersComponent } from './components/display-buyers/display-buye
 import { SharedModule } from './components/shared/shared.module';
 import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
 import { FilijaleComponent } from './components/filijale/filijale.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FilijaleComponent } from './components/filijale/filijale.component';
     DashboardComponent,
     DisplayBuyersComponent,
     PaketiPomociComponent,
-    FilijaleComponent
+    FilijaleComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

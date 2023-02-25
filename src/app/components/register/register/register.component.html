@@ -8,7 +8,7 @@
             <mat-form-field class="example-full-width">
                 <input formControlName="ime" matInput placeholder="Ime">
             </mat-form-field>
-            <small *ngIf="registerForm.controls['ime'].dirty && registerForm.hasError('required', 'ime')">Name is required</small>
+            <small *ngIf="registerForm.controls['ime'].dirty && registerForm.hasError('required', 'ime')">Ime je obavezno</small>
             <mat-form-field class="example-full-width">
                 <input formControlName="prezime" matInput placeholder="Prezime">
             </mat-form-field>
@@ -24,7 +24,7 @@
             <mat-form-field class="example-full-width">
                 <input formControlName="adresa" matInput placeholder="Adresa">
             </mat-form-field>
-            <small *ngIf="registerForm.controls['adresa'].dirty && registerForm.hasError('required', 'adresa')">Email je obavezan</small>
+            <small *ngIf="registerForm.controls['adresa'].dirty && registerForm.hasError('required', 'adresa')">Adresa je obavezna</small>
             <mat-form-field class="example-full-width">
                 <input formControlName="email" matInput placeholder="Email">
             </mat-form-field>
