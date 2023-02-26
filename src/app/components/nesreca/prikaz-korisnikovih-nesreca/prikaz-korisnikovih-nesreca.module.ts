@@ -4,9 +4,11 @@ import { MaterialModule } from 'src/app/material/material.module';
 
 import { PrikazKorisnikovihNesrecaComponent } from './prikaz-korisnikovih-nesreca.component';
 import { NesrecaModule } from './nesreca/nesreca.module';
+import { PrijavaNesreceComponent } from './prijava-nesrece/prijava-nesrece.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PrikazKorisnikovihNesrecaComponent],
+  declarations: [PrikazKorisnikovihNesrecaComponent, PrijavaNesreceComponent],
   imports: [CommonModule, MaterialModule, NesrecaModule],
   exports: [PrikazKorisnikovihNesrecaComponent],
 })

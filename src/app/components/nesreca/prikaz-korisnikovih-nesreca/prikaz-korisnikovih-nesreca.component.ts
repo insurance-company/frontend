@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { NesrecaService } from 'src/app/services/nesreca.service';
+import { PrijavaNesreceComponent } from './prijava-nesrece/prijava-nesrece.component';
 
 @Component({
   selector: 'prikaz-korisnikovih-nesreca',
@@ -13,7 +15,7 @@ export class PrikazKorisnikovihNesrecaComponent implements OnInit {
   pageNumber: number = 0
   totalCount: number = 0
 
-  constructor(private nesrecaService: NesrecaService){}
+  constructor(private nesrecaService: NesrecaService, private dialog: MatDialog){}
 
 
   ngOnInit(): void {
@@ -36,6 +38,16 @@ export class PrikazKorisnikovihNesrecaComponent implements OnInit {
           console.log("error " + err.status)
         }
       });
+  }
+
+  openDialog(){
+    let dialogRef = this.dialog.open(PrijavaNesreceComponent, {
+      disableClose: true,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'canceled') return;
+    
+    });
   }
 
 }

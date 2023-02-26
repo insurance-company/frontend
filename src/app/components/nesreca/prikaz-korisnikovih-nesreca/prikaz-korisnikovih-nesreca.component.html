@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <button (click)="openDialog()">Prijavi nesrecu</button>
   <div class="users-wrapper">
     <nesreca *ngFor="let accident of accidents" [nesreca]="accident"></nesreca>
   </div>
