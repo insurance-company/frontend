@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login/login.component';
 import { PrikazKorisnikovihNesrecaComponent } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.component';
 import { ValidacijaNesrecaComponent } from './components/nesreca/validacija-nesreca/validacija-nesreca.component';
 import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
+import { PrikazKorisnikovihPolisaComponent } from './components/polise/prikaz-korisnikovih-polisa/prikaz-korisnikovih-polisa.component';
 import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.component';
 import { RegisterComponent } from './components/register/register/register.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'filijale', component: FilijaleComponent},
   {path: 'profil', component:UserProfileComponent},
   {path: 'nesrece', component: PrikazKorisnikovihNesrecaComponent},
-  {path: 'prijavljene-nesrece', component: ValidacijaNesrecaComponent}
+  {path: 'prijavljene-nesrece', component: ValidacijaNesrecaComponent},
+  {path: 'polise', component:PrikazKorisnikovihPolisaComponent}
 ];
 
 @NgModule({

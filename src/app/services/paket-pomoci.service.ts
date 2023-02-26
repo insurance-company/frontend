@@ -11,6 +11,6 @@ export class PaketPomociService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getAll() : Observable<any>{
-    return this.http.get<any>('https://localhost:7213/api/PaketPomoci')
+    return this.http.get<any>('https://localhost:7213/api/AidPackage')
   }
 }

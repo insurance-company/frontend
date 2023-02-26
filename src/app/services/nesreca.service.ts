@@ -11,12 +11,12 @@ export class NesrecaService {
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
-  getAll() : Observable<any>{
+  getAllByUserId(pageNumber: number) : Observable<any>{
     const userId = this.auth.getLoggedUserId()
-    return this.http.get<any>('https://localhost:7213/api/Nesreca/getAllByUserId/' + userId)
+    return this.http.get<any>('https://localhost:7213/api/Accident/getAllByUserId/' + userId + '/' + pageNumber + '/4')
   }
 
-  getAllUnvalidated() : Observable<any> {
-    return this.http.get<any>('https://localhost:7213/api/Nesreca/getAllUnvalidated')
+  getAllUnvalidated(pageNumber: number) : Observable<any> {
+    return this.http.get<any>('https://localhost:7213/api/Accident/getAllUnvalidated/' + pageNumber + '/4')
   }
 }

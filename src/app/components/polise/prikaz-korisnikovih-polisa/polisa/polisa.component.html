@@ -1,0 +1,16 @@
+<div class="user-wrapper">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         Oznaka auta: {{ polisa.auto.registarskiBroj}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Tip: {{ polisa.polisa.paketPomoci.tip }}</p>
+      <p>Pokrice: {{ polisa.polisa.paketPomoci.pokrice }}</p>
+      <p>Trajanje: {{ polisa.polisa.paketPomoci.trajanjeUMesecima }} meseci</p>
+      <p>Datum: {{ polisa.datum  | date: "dd/MM/yyyy" }}</p>
+      <p>Agent: {{ polisa.agent.ime}} {{polisa.agent.prezime}}, Br. Licence {{polisa.agent.brojLicence}}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

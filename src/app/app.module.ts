@@ -20,6 +20,7 @@ import { PrikazKorisnikovihNesrecaComponent } from './components/nesreca/prikaz-
 import { PrikazKorisnikovihNesrecaModule } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.module';
 import { ValidacijaNesrecaModule } from './components/nesreca/validacija-nesreca/validacija-nesreca.module';
 import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.component';
+import { PrikazKorisnikovihPolisaModule } from './components/polise/prikaz-korisnikovih-polisa/prikaz-korisnikovih-polisa.module';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.
     SharedModule,
     PrikazKorisnikovihNesrecaModule,
     ValidacijaNesrecaModule,
+    PrikazKorisnikovihPolisaModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

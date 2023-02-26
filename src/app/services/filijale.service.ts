@@ -10,7 +10,7 @@ export class FilijaleService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getAll() : Observable<any>{
-    return this.http.get<any>('https://localhost:7213/api/Filijala')
+  getAll(pageNumber: number) : Observable<any>{
+    return this.http.get<any>('https://localhost:7213/api/BranchOffice/getAll/' + pageNumber + '/4')
   }
 }

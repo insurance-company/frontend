@@ -12,14 +12,32 @@ export class FilijaleComponent implements OnInit {
 
   filijale = new MatTableDataSource<any>();
   displayedColumns: string[] = ["adresa"]
+  pageNumber: number = 0
+  totalCount: number = 0
 
   constructor(private filijaleService: FilijaleService){}
 
 
   ngOnInit(): void {
-   this.filijaleService.getAll().subscribe(res=>{
-    this.filijale = res
+   this.filijaleService.getAll(this.pageNumber).subscribe(res=>{
+    this.filijale = res.data
+    this.totalCount = res.totalCount
    })
+  }
+
+  onPageChanged(e : any){
+    this.pageNumber = e.pageIndex;
+    this.filijaleService
+      .getAll(this.pageNumber)
+      .subscribe({
+        next: (res) => {
+          this.filijale = new MatTableDataSource(res.data);
+          this.totalCount = res.totalCount;
+        },
+        error: (err) => {
+          console.log("error " + err.status)
+        }
+      });
   }
 
 }
