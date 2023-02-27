@@ -19,4 +19,8 @@ export class NesrecaService {
   getAllUnvalidated(pageNumber: number) : Observable<any> {
     return this.http.get<any>('https://localhost:7213/api/Accident/getAllUnvalidated/' + pageNumber + '/4')
   }
+
+  create(accident: any) : Observable<any>{
+    return this.http.post<any>('https://localhost:7213/api/Accident/createAccident', accident)
+  }
 }

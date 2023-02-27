@@ -46,7 +46,16 @@ export class PrikazKorisnikovihNesrecaComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;
-    
+      this.accidents = []
+      this.pageNumber = 0
+      this.nesrecaService.getAllByUserId(this.pageNumber).subscribe({
+        next:(res)=>{
+          this.accidents = res.data
+          this.totalCount = res.totalCount
+        }, error:(err)=>{
+
+        }
+      })  
     });
   }
 

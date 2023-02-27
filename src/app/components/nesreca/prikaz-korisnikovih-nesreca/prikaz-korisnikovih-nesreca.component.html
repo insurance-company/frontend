@@ -1,5 +1,7 @@
 <div class="wrapper">
-  <button (click)="openDialog()">Prijavi nesrecu</button>
+  <div class="report-button-wrapper">
+    <button (click)="openDialog()" class="report-button">Prijavi nesrecu</button>
+  </div>
   <div class="users-wrapper">
     <nesreca *ngFor="let accident of accidents" [nesreca]="accident"></nesreca>
   </div>

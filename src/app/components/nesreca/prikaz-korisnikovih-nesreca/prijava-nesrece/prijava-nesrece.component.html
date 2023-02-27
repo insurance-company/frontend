@@ -1,13 +1,13 @@
 <mat-dialog-content class="content">
   <button class="close" mat-button mat-dialog-close="canceled">X</button>
-  <mat-stepper orientation="horizontal">
+  <mat-stepper orientation="horizontal" [linear]="true">
     <mat-step>
       <form [formGroup]="formDatum">
         <mat-form-field appearance="fill">
           <mat-label>Datum</mat-label>
           <input
             matInput
-            type="date"
+            type="datetime-local"
             required
             formControlName="datum"
           />
@@ -53,7 +53,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext>Prijavi</button>
+        <button mat-button matStepperNext mat-dialog-close="report" (click)="report()">Prijavi</button>
       </div>
     </form>
   </mat-step>

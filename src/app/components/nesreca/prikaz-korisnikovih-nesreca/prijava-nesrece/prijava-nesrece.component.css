@@ -1,3 +1,8 @@
-mdc-text-field__input::-webkit-calendar-picker-indicator {
-    display: block !important;
+
+.close{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 5px;
+    cursor: pointer;
 }
