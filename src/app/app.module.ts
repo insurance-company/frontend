@@ -13,13 +13,16 @@ import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from './components/shared/shared.module';
-import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
-import { FilijaleComponent } from './components/filijale/filijale.component';
+import { AidPackagesDisplayComponent} from './components/aid-packages/aid-packages-display.component';
+import { BranchesDisplayComponent } from './components/branches/branches-display.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { PrikazKorisnikovihNesrecaComponent } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.component';
-import { PrikazKorisnikovihNesrecaModule } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.module';
-import { ValidacijaNesrecaModule } from './components/nesreca/validacija-nesreca/validacija-nesreca.module';
-import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.component';
+import { CustomersDisplayComponent } from './components/customers-display/customers-display.component';
+import { UsersPoliciesDisplayModule } from './components/polise/prikaz-korisnikovih-polisa/users-policies-display.module';
+import { UsersAccidentsDisplayModule } from './components/accidents/users-accidents-display/users-accidents-display.module';
+import { AccidentValidationModule } from './components/accidents/accident-validation/accident-validation.module';
+import { AgentSoldPoliciesDisplayComponent } from './components/polise/agents-sold-policies/agent-sold-display.component';
+import { AgentSoldPoliciesDisplayModule } from './components/polise/agents-sold-policies/agent-sold-policies-display.module';
+import { AidPackagesDisplayModule } from './components/aid-packages/aid-packages-display.module';
 
 @NgModule({
   declarations: [
@@ -27,9 +30,8 @@ import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    PrikazKupacaComponent,
-    PaketiPomociComponent,
-    FilijaleComponent,
+    CustomersDisplayComponent,
+    BranchesDisplayComponent,
     UserProfileComponent
   ],
   imports: [
@@ -41,8 +43,11 @@ import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.
     ReactiveFormsModule,
     NgToastModule,
     SharedModule,
-    PrikazKorisnikovihNesrecaModule,
-    ValidacijaNesrecaModule,
+    UsersAccidentsDisplayModule,
+    AccidentValidationModule,
+    UsersPoliciesDisplayModule,
+    AgentSoldPoliciesDisplayModule,
+    AidPackagesDisplayModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

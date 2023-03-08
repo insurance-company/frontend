@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div class="users-wrapper">
+    <nesreca *ngFor="let accident of accidents" [accident]="accident"></nesreca>
+  </div>
+  <mat-paginator
+  [pageSize]="4"
+  [length]="totalCount"
+  (page)="onPageChanged($event)"
+  [pageIndex]="pageNumber"
+  >
+</mat-paginator>
+</div>

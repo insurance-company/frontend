@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { IUser } from 'src/app/model/User';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,18 +12,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserProfileComponent {
   registerForm!: FormGroup
-  user:any
+  user: IUser | any
   isDisabled:boolean=true
   constructor(private fb: FormBuilder, private auth: AuthService, private toast: NgToastService, private router: Router) {}
   
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      ime: ["", Validators.required],
-      prezime: ["", Validators.required],
-      jmbg:["", Validators.required],
-      brojTelefona:["", Validators.required],
-      adresa:["", Validators.required],
-      pol:[0, Validators.required],
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      uniqueMasterCitizenNumber:["", Validators.required],
+      phoneNumber:["", Validators.required],
+      address:["", Validators.required],
+      gender:[0, Validators.required],
       email: ["", Validators.required],
     })
 
@@ -30,12 +31,12 @@ export class UserProfileComponent {
       next : (res) =>{
         this.user = res
         console.log(res)
-        this.registerForm.controls["ime"].setValue(this.user.ime)  
-        this.registerForm.controls["prezime"].setValue(this.user.prezime)
-        this.registerForm.controls["jmbg"].setValue(this.user.jmbg)
-        this.registerForm.controls["brojTelefona"].setValue(this.user.brojTelefona)
-        this.registerForm.controls["adresa"].setValue(this.user.adresa)
-        this.registerForm.controls["pol"].setValue(this.user.pol)
+        this.registerForm.controls["firstName"].setValue(this.user.firstName)  
+        this.registerForm.controls["lastName"].setValue(this.user.lastName)
+        this.registerForm.controls["uniqueMasterCitizenNumber"].setValue(this.user.uniqueMasterCitizenNumber)
+        this.registerForm.controls["phoneNumber"].setValue(this.user.phoneNumber)
+        this.registerForm.controls["address"].setValue(this.user.address)
+        this.registerForm.controls["gender"].setValue(this.user.gender)
         this.registerForm.controls["email"].setValue(this.user.email)      
         this.registerForm.disable()
       }, 

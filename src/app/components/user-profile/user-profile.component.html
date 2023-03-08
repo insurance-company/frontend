@@ -1,30 +1,35 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="profile-wrapper" >
     <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>Profil</mat-card-title>
-      </mat-card-header>
       <form class="example-form" [formGroup]="registerForm">
         <mat-card-content>
             <mat-form-field class="example-full-width">
-                <input formControlName="ime" name="ime" matInput placeholder="Ime">
+                <mat-label>Ime</mat-label>
+                <input formControlName="firstName" name="firstName" matInput placeholder="Ime">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input formControlName="prezime" matInput placeholder="Prezime">
+                <mat-label>LastName</mat-label>
+                <input formControlName="lastName" matInput placeholder="LastName">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input formControlName="jmbg" matInput placeholder="JMBG">
+                <mat-label>JMBG</mat-label>
+                <input formControlName="uniqueMasterCitizenNumber" matInput placeholder="JMBG">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input formControlName="brojTelefona" matInput placeholder="Broj Telefona">
+                <mat-label>Broj telefona</mat-label>
+                <input formControlName="phoneNumber" matInput placeholder="Broj Telefona">
             </mat-form-field>
             <mat-form-field class="example-full-width">
-                <input formControlName="adresa" matInput placeholder="Adresa">
+                <mat-label>Adresa</mat-label>
+                <input formControlName="address" matInput placeholder="Adresa">
             </mat-form-field>
             <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
                 <input formControlName="email" matInput placeholder="Email">
             </mat-form-field>
-            <input formControlName="pol" name="pol" ng-control="options" type="radio" [value]="0">MUSKO
-            <input formControlName="pol" name="pol" ng-control="options" type="radio" [value]="1">ZENSKO
+            <div class="pol">
+                <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="0">MUSKO
+                <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="1">ZENSKO
+            </div>
         </mat-card-content>
       </form>
     </mat-card>

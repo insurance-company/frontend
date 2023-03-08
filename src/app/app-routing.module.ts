@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccidentValidationComponent } from './components/accidents/accident-validation/accident-validation.component';
+import { UsersAccidentsDisplayComponent } from './components/accidents/users-accidents-display/users-accidents-display.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { FilijaleComponent } from './components/filijale/filijale.component';
+import { BranchesDisplayComponent } from './components/branches/branches-display.component';
 import { LoginComponent } from './components/login/login/login.component';
-import { PrikazKorisnikovihNesrecaComponent } from './components/nesreca/prikaz-korisnikovih-nesreca/prikaz-korisnikovih-nesreca.component';
-import { ValidacijaNesrecaComponent } from './components/nesreca/validacija-nesreca/validacija-nesreca.component';
-import { PaketiPomociComponent } from './components/paketi-pomoci/paketi-pomoci.component';
-import { PrikazKupacaComponent } from './components/prikaz-kupaca/prikaz-kupaca.component';
+import { AidPackagesDisplayComponent} from './components/aid-packages/aid-packages-display.component';
+import { UsersPoliciesDisplayComponent } from './components/polise/prikaz-korisnikovih-polisa/users-policies-display.component';
+import { CustomersDisplayComponent } from './components/customers-display/customers-display.component';
 import { RegisterComponent } from './components/register/register/register.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AgentSoldPoliciesDisplayComponent } from './components/polise/agents-sold-policies/agent-sold-display.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registracija', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'kupci', component: PrikazKupacaComponent},
-  {path: 'paketi-pomoci', component: PaketiPomociComponent},
-  {path: 'filijale', component: FilijaleComponent},
+  {path: 'kupci', component: CustomersDisplayComponent},
+  {path: 'paketi-pomoci', component: AidPackagesDisplayComponent},
+  {path: 'filijale', component: BranchesDisplayComponent},
   {path: 'profil', component:UserProfileComponent},
-  {path: 'nesrece', component: PrikazKorisnikovihNesrecaComponent},
-  {path: 'prijavljene-nesrece', component: ValidacijaNesrecaComponent}
+  {path: 'nesrece', component: UsersAccidentsDisplayComponent},
+  {path: 'prijavljene-nesrece', component: AccidentValidationComponent},
+  {path: 'polise', component:UsersPoliciesDisplayComponent},
+  {path: 'prodate-polise', component: AgentSoldPoliciesDisplayComponent}
 ];
 
 @NgModule({

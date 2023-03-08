@@ -1,0 +1,13 @@
+.report-button-wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 20px
+}
+
+.report-button{
+    padding: 10px;
+    border-radius: 1em;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+}

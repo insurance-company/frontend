@@ -21,18 +21,19 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatInputModule,
     MatButtonModule,
     MatTableModule,
     MatCardModule,
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
+    MatInputModule,
     MatSelectModule,
     MatOptionModule,
     MatChipsModule,
@@ -45,11 +46,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatRadioModule,
     MatMenuModule,
     MatDividerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
-    MatInputModule,
     MatButtonModule,
     MatTableModule,
     MatButtonModule,
@@ -57,6 +59,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
+    MatInputModule,
     MatChipsModule,
     MatSelectModule,
     MatOptionModule,
@@ -69,7 +72,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatMenuModule,
     MatDividerModule,
     MatBottomSheetModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class MaterialModule {}

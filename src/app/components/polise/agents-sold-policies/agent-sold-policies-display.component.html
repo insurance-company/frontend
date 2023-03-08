@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div class="users-wrapper">
+    <polisa *ngFor="let policy of policies" [policy]="policy"></polisa>
+  </div>
+  <mat-paginator
+  [pageSize]="4"
+  [length]="totalCount"
+  (page)="onPageChanged($event)"
+  [pageIndex]="pageNumber"
+  >
+</mat-paginator>
+</div>

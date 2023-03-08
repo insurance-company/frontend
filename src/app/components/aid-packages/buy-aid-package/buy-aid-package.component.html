@@ -1,0 +1,71 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+  <mat-stepper orientation="horizontal" [linear]="true">
+    <mat-step>
+      <form [formGroup]="formDescription">
+        <div class="wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Tip</mat-label>
+          <input
+            matInput
+            required
+            value="{{description}}"
+            [disabled]="true"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Cena</mat-label>
+          <input
+            matInput
+            required
+            value="{{price}}"
+            [disabled]="true"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Pokrice</mat-label>
+          <input
+            matInput
+            required
+            value="{{cover}}"
+            [disabled]="true"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Trajanje</mat-label>
+          <input
+            matInput
+            required
+            value="{{durationInMonths}} meseci"
+            [disabled]="true"
+          />
+        </mat-form-field>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Sledece</button>
+        </div>
+      </form>
+    </mat-step>
+  <mat-step>
+    <form [formGroup]="formCarId">
+      <mat-form-field appearance="fill">
+        <mat-label>Auto:</mat-label>
+        <mat-select formControlName="carId">
+          <mat-option
+          *ngFor="let car of cars"
+            value="{{ car.id }}"
+          >
+            {{ car.registerNumber }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext mat-dialog-close="buy" (click)='buy()'>Kupi</button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-stepper>
+</mat-dialog-content>
