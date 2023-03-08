@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { IUser } from '../model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
     this.userPayload = this.decodeToken()
    }
 
-  register(userObj: any){
+  register(userObj: IUser){
     return this.http.post<any>('https://localhost:7213/api/User/register', userObj)
   }
 

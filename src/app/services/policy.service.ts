@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ISignedPolicy } from '../model/SignedPolicy';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -13,6 +14,15 @@ export class PolicyService {
 
   getAllByBuyerId(pageNumber: number) : Observable<any>{
     const buyerId = this.auth.getLoggedUserId()
-    return this.http.get<any>('https://localhost:7213/api/SignedPolicy/getAllByBuyerId/' + buyerId + '/' + pageNumber + '/4')
+    return this.http.get<any>('https://localhost:7213/api/Policy/getAllByBuyerId/' + buyerId + '/' + pageNumber + '/4')
+  }
+
+  getAllByAgentId(pageNumber: number) : Observable<any>{
+    const agentId = this.auth.getLoggedUserId()
+    return this.http.get<any>('https://localhost:7213/api/Policy/getAllByAgentId/' + agentId + '/' + pageNumber + '/4')
+  }
+
+  buyPolicy(policy: ISignedPolicy){
+    return this.http.post<ISignedPolicy>('https://localhost:7213/api/Policy/buyPolicy', policy)
   }
 }

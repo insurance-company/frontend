@@ -1,8 +1,9 @@
 <div class="sidebar-wrapper">
     <div routerLink='paketi-pomoci' class="sidebar-option">PAKETI POMOCI</div>
     <div routerLink='filijale' class="sidebar-option">FILIJALE</div>
-    <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='User'">NESRECE</div>
-    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='Menadzer'">PRIJAVLJENE NESRECE</div>
-    <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='Menadzer' || userRole == 'Agent'">KUPCI</div>
-    <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'User'">POLISE</div>
+    <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='CUSTOMER'">NESRECE</div>
+    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='MANAGER'">PRIJAVLJENE NESRECE</div>
+    <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='MANAGER' || userRole == 'AGENT'">KUPCI</div>
+    <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'">POLISE</div>
+    <div routerLink="prodate-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">PRODATE POLISE</div>
 </div>

@@ -15,18 +15,20 @@ export class RegisterComponent {
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      ime: ['', Validators.required],
-      prezime: ['', Validators.required],
-      jmbg:['', Validators.required],
-      brojTelefona:['', Validators.required],
-      adresa:['', Validators.required],
-      pol:['1', Validators.required],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      uniqueMasterCitizenNumber:['', Validators.required],
+      phoneNumber:['', Validators.required],
+      address:['', Validators.required],
+      gender:['1', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      role: [0]
     })
   }
 
   onSubmit(){
+    console.log(this.registerForm.value)
     this.auth.register(this.registerForm.value).subscribe({
       next: (res) => {
         this.toast.success({detail: "SUCCESS", summary: "Uspesna registracija!", duration: 5000});

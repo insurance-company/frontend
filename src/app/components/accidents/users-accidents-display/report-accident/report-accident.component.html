@@ -1,0 +1,61 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+  <mat-stepper orientation="horizontal" [linear]="true">
+    <mat-step>
+      <form [formGroup]="formDate">
+        <mat-form-field appearance="fill">
+          <mat-label>Datum</mat-label>
+          <input
+            matInput
+            type="datetime-local"
+            required
+            formControlName="date"
+          />
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperNext>Sledece</button>
+        </div>
+      </form>
+    </mat-step>
+  <mat-step>
+    <form [formGroup]="formCarId">
+      <mat-form-field appearance="fill">
+        <mat-label>Auto:</mat-label>
+        <mat-select formControlName="carId">
+          <mat-option
+          *ngFor="let car of cars"
+            value="{{ car.id }}"
+          >
+            {{ car.registerNumber }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext>Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [formGroup]="formDescription">
+      <mat-form-field appearance="fill">
+        <mat-label>Opis</mat-label>
+        <textarea
+          matInput
+          type="text"
+          required
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext mat-dialog-close="report" (click)="report()">Prijavi</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>
+</mat-dialog-content>
