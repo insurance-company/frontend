@@ -1,0 +1,79 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+  <mat-stepper orientation="horizontal" [linear]="true">
+    <mat-step>
+      <form [formGroup]="formDescription">
+        <mat-form-field appearance="fill">
+          <mat-label>Tip</mat-label>
+          <input
+            matInput
+            required
+            formControlName="description"
+          />
+       </mat-form-field>
+       <div>
+          <button mat-button matStepperNext>Sledece</button>
+       </div>
+      </form>
+    </mat-step>
+  <mat-step>
+    <form [formGroup]="formPrice">
+      <mat-form-field appearance="fill">
+        <mat-label>Cena:</mat-label>
+        <input
+            matInput
+            required
+            type="number"
+            min="0"
+            formControlName="price"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext>Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="formCover">
+      <mat-form-field appearance="fill">
+        <mat-label>Pokrice:</mat-label>
+        <input
+            matInput
+            required
+            type="number"
+            min="0"
+            formControlName="cover"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext>Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="formDurationInMonths">
+      <mat-form-field appearance="fill">
+        <mat-label>Trajanje u mesecima:</mat-label>
+        <input
+            matInput
+            required
+            type="number"
+            min="0"
+            max="24"
+            formControlName="durationInMonths"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext mat-dialog-close="create" (click)="Create()">Kreiraj</button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-stepper>
+</mat-dialog-content>
