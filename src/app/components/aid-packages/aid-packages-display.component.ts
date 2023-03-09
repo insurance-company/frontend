@@ -8,6 +8,7 @@ import { AidPackageService } from 'src/app/services/aidPackage.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CreateAidPackageComponent } from './create-aid-package/create-aid-package.component';
 import { BuyAidPackageComponent } from './buy-aid-package/buy-aid-package.component';
+import { UpdateAidPackageComponent } from './update-aid-package/update-aid-package.component';
 
 @Component({
   selector: 'paketi-pomoci',
@@ -50,6 +51,7 @@ export class AidPackagesDisplayComponent implements OnInit {
   }
 
   Remove(row: any){
+    console.log(row.id)
     this.aidPackageService.Remove(row.id).subscribe({
       next:(res)=>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno izbrisan paket pomoci!", duration: 5000});
@@ -67,6 +69,31 @@ export class AidPackagesDisplayComponent implements OnInit {
     let dialogRef = this.dialog.open(CreateAidPackageComponent, {
       disableClose: true,
     });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'canceled') return;
+      this.aidPackages = new MatTableDataSource<any>()
+      this.aidPackageService.getAll().subscribe({
+        next:(res)=>{
+          this.aidPackages.data = res
+        }, error:(err)=>{
+
+        }
+      })  
+    });
+  }
+
+  openUpdateDialog(row: any){
+    
+    let dialogRef = this.dialog.open(UpdateAidPackageComponent, {
+      disableClose: true,
+    });
+
+    dialogRef.componentInstance.id = row.id
+    dialogRef.componentInstance.description = row.description
+    dialogRef.componentInstance.price = row.price
+    dialogRef.componentInstance.cover = row.cover
+    dialogRef.componentInstance.durationInMonths = row.durationInMonths
+
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;
       this.aidPackages = new MatTableDataSource<any>()

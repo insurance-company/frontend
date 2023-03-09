@@ -22,6 +22,7 @@ export class AidPackageService {
   }
 
   Update(aidPackage: IAidPackage) : Observable<any> {
+    console.log("id", aidPackage.id)
     return this.http.put<any>('https://localhost:7213/api/AidPackage/Update', aidPackage)
   }
 

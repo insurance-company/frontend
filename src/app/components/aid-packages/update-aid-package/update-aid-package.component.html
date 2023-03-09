@@ -1,0 +1,46 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+      <form [formGroup]="formPackage">
+        <div class="wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Tip</mat-label>
+          <input
+            matInput
+            required
+            formControlName="description"
+           />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Cena</mat-label>
+          <input
+            matInput
+            required
+            value="{{price}}"
+            formControlName="price"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Pokrice</mat-label>
+          <input
+            matInput
+            required
+            value="{{cover}}"
+            formControlName="cover"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Trajanje</mat-label>
+          <input
+            matInput
+            required
+            value="{{durationInMonths}} meseci"
+            formControlName="durationInMonths"
+          />
+        </mat-form-field>
+        </div>
+        <div>
+          <button mat-button mat-dialog-close="canceled">Odustani</button>
+          <button mat-button mat-dialog-close="save" (click)="Update()">Sacuvaj</button>
+        </div>
+      </form>
+</mat-dialog-content>

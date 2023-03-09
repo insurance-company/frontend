@@ -35,7 +35,7 @@ export class CreateAidPackageComponent implements OnInit {
 
 
   Create(){
-    this.aidPackageService.Create({id: -1, description: this.formDescription.controls.description.value, price: this.formPrice.controls.price.value, cover: this.formCover.controls.cover.value, durationInMonths: this.formDurationInMonths.controls.durationInMonths.value}).subscribe({
+    this.aidPackageService.Create({id: 0, description: this.formDescription.controls.description.value, price: this.formPrice.controls.price.value, cover: this.formCover.controls.cover.value, durationInMonths: this.formDurationInMonths.controls.durationInMonths.value}).subscribe({
       next: (res) =>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno kreiranje paketa!", duration: 5000});
       }, error: (err) =>{
