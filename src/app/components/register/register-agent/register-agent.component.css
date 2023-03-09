@@ -1,0 +1,26 @@
+.title {
+  justify-content: center;
+  align-content: center;
+}
+
+.box {
+  max-width: 700px;
+  max-height: 550px;
+  overflow-y: scroll;
+}
+.example-full-width{
+  display: flex;
+  flex-direction: column;
+}
+
+.gender {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

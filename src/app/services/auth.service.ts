@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IUser } from '../model/User';
 import { IManager } from '../model/Manager';
+import { IAgent } from '../model/Agent';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +19,19 @@ export class AuthService {
    }
 
   register(userObj: IUser){
-    return this.http.post<any>('https://localhost:7213/api/User/register', userObj)
+    return this.http.post<any>('https://localhost:7213/api/Auth/register', userObj)
   }
 
   registerManager(manager: any){
-    console.log(manager)
-    return this.http.post<any>('https://localhost:7213/api/User/registerManager', manager)
+    return this.http.post<any>('https://localhost:7213/api/Auth/registerManager', manager)
+  }
+
+  registerAgent(agent: IAgent){
+    return this.http.post<any>('https://localhost:7213/api/Auth/registerAgent', agent)
   }
 
   login(loginObj: any) : Observable<any> {
-    return this.http.post<any>('https://localhost:7213/api/User/authenticate', loginObj)
+    return this.http.post<any>('https://localhost:7213/api/Auth/authenticate', loginObj)
   }
 
   storeToken(tokenValue: string){
