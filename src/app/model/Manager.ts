@@ -10,6 +10,7 @@ export interface IManager{
     uniqueMasterCitizenNumber:string;
     phoneNumber:string;
     address:string;
-    gender: Gender;  
-    managesTheBranch: IBranch;
+    gender: Gender;   
+    bossId: number; 
+    managesTheBranchId: number;
 }

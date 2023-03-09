@@ -6,4 +6,5 @@
     <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='MANAGER' || userRole == 'AGENT'">KUPCI</div>
     <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'">POLISE</div>
     <div routerLink="prodate-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">PRODATE POLISE</div>
+    <div routerLink="registracija-menadzera" class="sidebar-option" *ngIf="userRole == 'ADMIN'">REGISTRUJ MENADZERA</div>
 </div>

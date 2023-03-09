@@ -23,12 +23,14 @@ import { AccidentValidationModule } from './components/accidents/accident-valida
 import { AgentSoldPoliciesDisplayComponent } from './components/polise/agents-sold-policies/agent-sold-display.component';
 import { AgentSoldPoliciesDisplayModule } from './components/polise/agents-sold-policies/agent-sold-policies-display.module';
 import { AidPackagesDisplayModule } from './components/aid-packages/aid-packages-display.module';
+import { RegisterManagerComponent } from './components/register/register-manager/register-manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    RegisterManagerComponent,
     DashboardComponent,
     CustomersDisplayComponent,
     BranchesDisplayComponent,

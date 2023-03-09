@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IUser } from '../model/User';
+import { IManager } from '../model/Manager';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,11 @@ export class AuthService {
 
   register(userObj: IUser){
     return this.http.post<any>('https://localhost:7213/api/User/register', userObj)
+  }
+
+  registerManager(manager: any){
+    console.log(manager)
+    return this.http.post<any>('https://localhost:7213/api/User/registerManager', manager)
   }
 
   login(loginObj: any) : Observable<any> {
