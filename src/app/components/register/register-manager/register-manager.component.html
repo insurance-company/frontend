@@ -1,7 +1,7 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header class="title">
-        <mat-card-title>Registracija</mat-card-title>
+        <mat-card-title>Registracija menadzera</mat-card-title>
       </mat-card-header>
       <form class="example-form" [formGroup]="registerForm">
         <mat-card-content>
@@ -25,6 +25,16 @@
                 <input formControlName="address" matInput placeholder="Adresa">
             </mat-form-field>
             <small *ngIf="registerForm.controls['address'].dirty && registerForm.hasError('required', 'address')">Adresa je obavezna</small>
+            <mat-form-field class="example-full-width">
+                <mat-select formControlName="managesTheBranchId" placeholder="Upravlja Filijalom">
+                  <mat-option *ngFor="let branch of branches"value="{{ branch.id }}">{{ branch.address }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-select formControlName="bossId" placeholder="Sef">
+                  <mat-option *ngFor="let worker of workers" value="{{worker.id}}">{{ worker.firstName }} {{worker.lastName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-form-field class="example-full-width">
                 <input formControlName="email" matInput placeholder="Email">
             </mat-form-field>

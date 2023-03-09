@@ -20,7 +20,7 @@ export class RegisterComponent {
       uniqueMasterCitizenNumber:['', Validators.required],
       phoneNumber:['', Validators.required],
       address:['', Validators.required],
-      gender:['1', Validators.required],
+      gender:[0, Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       role: [0]
