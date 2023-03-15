@@ -1,0 +1,134 @@
+import { Component, OnInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+import { IAgent } from 'src/app/model/Agent';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import { UserService } from 'src/app/services/user.service';
+
+@Component({
+  selector: 'statistics',
+  templateUrl: './statistics.component.html',
+  styleUrls: ['./statistics.component.css']
+})
+export class StatisticsComponent implements OnInit {
+
+  agentSignedPoliciesChart: any = [];
+  chart1_data: any = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  agents : IAgent[] = []
+  year : number = -1
+  agentId : number = -1
+
+  constructor(private statService: StatisticsService, private userService: UserService){
+    Chart.register(...registerables);
+  }
+
+
+  ngOnInit(): void {
+
+    this.userService.getAllAgents().subscribe({
+      next : (res) => {
+        console.log(res)
+        this.agents = res
+      }, error: (err) =>{
+        console.log(err.error)
+      }
+    })
+
+    this.createChart()
+  }
+
+
+  createChart(){
+    
+    this.agentSignedPoliciesChart = new Chart('chart1', {
+      type: 'line',
+      data: {
+        labels: [
+          'Januar',
+          'Februar',
+          'Mart',
+          'April',
+          'Maj',
+          'Jun',
+          'Jul',
+          'Avgust',
+          'Septembar',
+          'Oktobar',
+          'Novembar',
+          'Decembar',
+        ],
+        datasets: [
+          {
+            label: 'Broj prodatih polisa',
+            data: this.chart1_data,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)',
+            ],
+            borderWidth: 3,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          title: {
+            color: 'gray',
+            display: true,
+            font: {
+              size: 20,
+            },
+            text: 'Broj prodatih polisa',
+            padding: {
+              top: 10,
+            },
+          },
+        },
+      },
+    });
+  }
+
+  saveAgent(event: any){
+    
+    this.agentId = event.value
+    if (this.year == -1) return
+
+    this.statService.GetNumberOfAgentSignedPoliciesPerMonth(this.agentId, this.year).subscribe({
+      next : (res) => {
+        this.chart1_data = res
+        this.agentSignedPoliciesChart.destroy()
+        this.createChart()
+      }, error : (err) => {
+
+      }
+    })
+
+  }
+  
+  saveYear(event: any){
+    this.year = event.value
+    if (this.agentId == -1) return
+    this.statService.GetNumberOfAgentSignedPoliciesPerMonth(this.agentId, this.year).subscribe({
+      next : (res) => {
+        this.chart1_data = res
+        this.agentSignedPoliciesChart.destroy()
+        this.createChart()
+      }, error : (err) => {
+
+      }
+    })
+  }
+}

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IAgent } from '../model/Agent';
 import { IUser } from '../model/User';
 
 @Injectable({
@@ -17,5 +18,9 @@ export class UserService {
 
   getAllWorkers() : Observable<IUser[]>{
     return this.http.get<IUser[]>('https://localhost:7213/api/User/getAllWorkers')
+  }
+
+  getAllAgents() : Observable<IAgent[]>{
+    return this.http.get<IAgent[]>('https://localhost:7213/api/User/getAllAgents')
   }
 }

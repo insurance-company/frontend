@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="background">
+        <div class="combo">
+            <mat-form-field>
+                <mat-label>Izaberi agenta</mat-label>
+                <mat-select (selectionChange)="saveAgent($event)">
+                    <mat-option *ngFor="let a of agents" [value]="a.id">
+                        {{a.firstName}} {{a.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Izaberi godinu</mat-label>  
+                <mat-select (selectionChange)="saveYear($event)">
+                    <mat-option value="2021">2021</mat-option>
+                    <mat-option value="2022">2022</mat-option>
+                    <mat-option value="2023">2023</mat-option>
+                </mat-select>
+            </mat-form-field>
+          </div>
+      <div class="size" [hidden]="!agentSignedPoliciesChart">
+        <canvas class="segment" id="chart1"></canvas>
+      </div>
+    </div>
+</div>

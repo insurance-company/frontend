@@ -14,6 +14,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AgentSoldPoliciesDisplayComponent } from './components/polise/agents-sold-policies/agent-sold-display.component';
 import { RegisterManagerComponent } from './components/register/register-manager/register-manager.component';
 import { RegisterAgentComponent } from './components/register/register-agent/register-agent.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'polise', component:UsersPoliciesDisplayComponent},
   {path: 'prodate-polise', component: AgentSoldPoliciesDisplayComponent},
   {path: 'registracija-menadzera', component: RegisterManagerComponent},
-  {path: 'registracija-agenta', component: RegisterAgentComponent}
+  {path: 'registracija-agenta', component: RegisterAgentComponent},
+  {path: 'statistike', component: StatisticsComponent}
 ];
 
 @NgModule({
