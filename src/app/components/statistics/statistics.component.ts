@@ -17,6 +17,10 @@ export class StatisticsComponent implements OnInit {
   year : number = -1
   agentId : number = -1
 
+  accidentsChart: any = []
+  chart2_data : any = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  accidentYear : number = -1
+
   constructor(private statService: StatisticsService, private userService: UserService){
     Chart.register(...registerables);
   }
@@ -33,11 +37,12 @@ export class StatisticsComponent implements OnInit {
       }
     })
 
-    this.createChart()
+    this.createSignedPoliciesChart()
+    this.createAccidentsChart()
   }
 
 
-  createChart(){
+  createSignedPoliciesChart(){
     
     this.agentSignedPoliciesChart = new Chart('chart1', {
       type: 'line',
@@ -101,6 +106,71 @@ export class StatisticsComponent implements OnInit {
     });
   }
 
+  createAccidentsChart(){
+    
+    this.accidentsChart = new Chart('chart2', {
+      type: 'line',
+      data: {
+        labels: [
+          'Januar',
+          'Februar',
+          'Mart',
+          'April',
+          'Maj',
+          'Jun',
+          'Jul',
+          'Avgust',
+          'Septembar',
+          'Oktobar',
+          'Novembar',
+          'Decembar',
+        ],
+        datasets: [
+          {
+            label: 'Broj prijavljenih nesreca',
+            data: this.chart2_data,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)',
+            ],
+            borderWidth: 3,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          title: {
+            color: 'gray',
+            display: true,
+            font: {
+              size: 20,
+            },
+            text: 'Broj prijavljenih nesreca',
+            padding: {
+              top: 10,
+            },
+          },
+        },
+      },
+    });
+  }
+
+
   saveAgent(event: any){
     
     this.agentId = event.value
@@ -110,7 +180,7 @@ export class StatisticsComponent implements OnInit {
       next : (res) => {
         this.chart1_data = res
         this.agentSignedPoliciesChart.destroy()
-        this.createChart()
+        this.createSignedPoliciesChart()
       }, error : (err) => {
 
       }
@@ -125,7 +195,20 @@ export class StatisticsComponent implements OnInit {
       next : (res) => {
         this.chart1_data = res
         this.agentSignedPoliciesChart.destroy()
-        this.createChart()
+        this.createSignedPoliciesChart()
+      }, error : (err) => {
+
+      }
+    })
+  }
+
+  saveAccidentYear(event: any){
+    this.accidentYear = event.value
+    this.statService.GetNumberOfAccidentsPerMonth(this.accidentYear).subscribe({
+      next : (res) => {
+        this.chart2_data = res
+        this.accidentsChart.destroy()
+        this.createAccidentsChart()
       }, error : (err) => {
 
       }

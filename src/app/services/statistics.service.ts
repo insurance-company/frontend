@@ -16,4 +16,7 @@ export class StatisticsService {
     return this.http.get<number[]>('https://localhost:7213/api/Statistics/GetNumberOfAgentSignedPoliciesPerMonth?agentId=' + agentId + '&year=' + year)
   }
 
+  GetNumberOfAccidentsPerMonth(year: number) : Observable<any>{
+    return this.http.get<number[]>('https://localhost:7213/api/Statistics/GetNumberOfAccidentsPerMonth?year=' + year)
+  }
 }

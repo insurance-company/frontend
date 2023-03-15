@@ -1,5 +1,4 @@
-<div class="container">
-    <div class="background">
+<div class="statistics-wrapper">
         <div class="combo">
             <mat-form-field>
                 <mat-label>Izaberi agenta</mat-label>
@@ -17,9 +16,19 @@
                     <mat-option value="2023">2023</mat-option>
                 </mat-select>
             </mat-form-field>
-          </div>
+      </div>
       <div class="size" [hidden]="!agentSignedPoliciesChart">
         <canvas class="segment" id="chart1"></canvas>
       </div>
-    </div>
+      <mat-form-field>
+        <mat-label>Izaberi godinu</mat-label>  
+        <mat-select (selectionChange)="saveAccidentYear($event)">
+            <mat-option value="2021">2021</mat-option>
+            <mat-option value="2022">2022</mat-option>
+            <mat-option value="2023">2023</mat-option>
+        </mat-select>
+    </mat-form-field>
+      <div class="size" [hidden]="!accidentsChart">
+        <canvas class="segment" id="chart2"></canvas>
+      </div>
 </div>
