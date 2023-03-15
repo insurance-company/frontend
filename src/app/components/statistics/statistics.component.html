@@ -27,8 +27,11 @@
             <mat-option value="2022">2022</mat-option>
             <mat-option value="2023">2023</mat-option>
         </mat-select>
-    </mat-form-field>
+      </mat-form-field>
       <div class="size" [hidden]="!accidentsChart">
         <canvas class="segment" id="chart2"></canvas>
+      </div>
+      <div class="size" [hidden]="!numberOfEachAccidentStatusChart">
+        <canvas class="segment" id="chart3"></canvas>
       </div>
 </div>

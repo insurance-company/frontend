@@ -21,6 +21,9 @@ export class StatisticsComponent implements OnInit {
   chart2_data : any = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   accidentYear : number = -1
 
+  numberOfEachAccidentStatusChart : any = []
+  chart3_data : any = [0, 0, 0]
+
   constructor(private statService: StatisticsService, private userService: UserService){
     Chart.register(...registerables);
   }
@@ -39,6 +42,15 @@ export class StatisticsComponent implements OnInit {
 
     this.createSignedPoliciesChart()
     this.createAccidentsChart()
+
+    this.statService.GetNumberOfEachAccidentStatus().subscribe({
+      next : (res) => {
+        this.chart3_data = res
+        this.createAccidentStatusChart()
+      }, error : (err) => {
+
+      }
+    })
   }
 
 
@@ -168,6 +180,66 @@ export class StatisticsComponent implements OnInit {
         },
       },
     });
+  }
+
+
+ 
+  createAccidentStatusChart() {
+    this.numberOfEachAccidentStatusChart = new Chart(
+      "chart3",
+      {
+        type: 'bar',
+        data: {
+          labels: ['VALIDNE', 'NEVALIDNE', "CEKAJU NA VALIDACIJU"],
+          datasets: [
+            {
+              label: 'Ukupan broj nesreca prema statusu',
+              data: this.chart3_data,
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderWidth: 3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+            title: {
+              color: 'gray',
+              display: true,
+              text: 'Ukupan broj nesreca prema statusu',
+              font: {
+                size: 20,
+              },
+              padding: {
+                top: 10,
+              },
+            },
+          },
+        },
+      }
+    );
   }
 
 

@@ -19,4 +19,8 @@ export class StatisticsService {
   GetNumberOfAccidentsPerMonth(year: number) : Observable<any>{
     return this.http.get<number[]>('https://localhost:7213/api/Statistics/GetNumberOfAccidentsPerMonth?year=' + year)
   }
+
+  GetNumberOfEachAccidentStatus() : Observable<any>{
+    return this.http.get<number[]>('https://localhost:7213/api/Statistics/GetNumberOfEachAccidentStatus')
+  }
 }
