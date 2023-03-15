@@ -42,7 +42,7 @@ export class AidPackagesDisplayComponent implements OnInit {
     dialogRef.componentInstance.description = row.description
     dialogRef.componentInstance.price = row.price
     dialogRef.componentInstance.cover = row.cover
-    dialogRef.componentInstance.aidPackageId = row.Id
+    dialogRef.componentInstance.aidPackageId = row.id
     dialogRef.componentInstance.durationInMonths = row.durationInMonths
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;

@@ -25,6 +25,7 @@ import { AgentSoldPoliciesDisplayModule } from './components/polise/agents-sold-
 import { AidPackagesDisplayModule } from './components/aid-packages/aid-packages-display.module';
 import { RegisterManagerComponent } from './components/register/register-manager/register-manager.component';
 import { RegisterAgentComponent } from './components/register/register-agent/register-agent.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegisterAgentComponent } from './components/register/register-agent/reg
     DashboardComponent,
     CustomersDisplayComponent,
     BranchesDisplayComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
