@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="users-wrapper">
-    <polisa (removePolicyEvent)="removePolicy($event)" *ngFor="let policy of policies" [policy]="policy"></polisa>
+    <polisa (removePolicyEvent)="removePolicy($event)" (openDialogEvent)="openDialog($event)" *ngFor="let policy of policies" [policy]="policy"></polisa>
   </div>
   <mat-paginator
   [pageSize]="4"

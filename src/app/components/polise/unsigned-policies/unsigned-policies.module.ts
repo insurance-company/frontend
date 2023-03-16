@@ -4,9 +4,10 @@ import { MaterialModule } from 'src/app/material/material.module';
 
 import { UnsignedPoliciesComponent } from './unsigned-policies.component';
 import { PolicyModule} from './policy/policy.module';
+import { ExportToPdfComponent } from './export-to-pdf/export-to-pdf.component';
 
 @NgModule({
-  declarations: [UnsignedPoliciesComponent],
+  declarations: [UnsignedPoliciesComponent, ExportToPdfComponent],
   imports: [CommonModule, MaterialModule, PolicyModule],
   exports: [UnsignedPoliciesComponent],
 })

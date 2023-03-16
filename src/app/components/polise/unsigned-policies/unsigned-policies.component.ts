@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { PolicyService } from 'src/app/services/policy.service';
+import { ExportToPdfComponent } from './export-to-pdf/export-to-pdf.component';
 
 @Component({
   selector: 'unsigned-policies',
@@ -13,7 +15,7 @@ export class UnsignedPoliciesComponent implements OnInit {
   pageNumber: number = 0
   totalCount: number = 0
 
-  constructor(private policyService: PolicyService){}
+  constructor(private policyService: PolicyService, private dialog: MatDialog){}
 
 
   ngOnInit(): void {
@@ -48,5 +50,13 @@ export class UnsignedPoliciesComponent implements OnInit {
         }
       });
   }
+
+  openDialog(evt: any){
+    let dialogRef = this.dialog.open(ExportToPdfComponent, {
+      disableClose: true,
+    });
+    dialogRef.componentInstance.id = evt
+  }
+
 
 }

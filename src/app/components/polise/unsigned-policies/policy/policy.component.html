@@ -1,14 +1,14 @@
 <div class="user-wrapper">
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel [disabled]="clickButton">
       <mat-expansion-panel-header>
         <mat-panel-title>
          Oznaka auta: {{ policy.car.registerNumber}}
         </mat-panel-title>
         <mat-panel-description>
           <div class="buttons">
-            <button mat-button class="button1" (click)="sign(policy)" [disabled]="declineSpinner"><mat-spinner [diameter]="20" *ngIf="signSpinner"></mat-spinner><span *ngIf="!signSpinner">POTPISI</span></button> 
-            <button mat-button class="button2" (click)="decline(policy)" [disabled]="signSpinner"><mat-spinner [diameter]="20" *ngIf="declineSpinner"></mat-spinner><span *ngIf="!declineSpinner">ODBIJ</span></button>
+            <button mat-button class="button1" (click)="sign(policy)" [disabled]="declineSpinner || signSpinner"><mat-spinner [diameter]="20" *ngIf="signSpinner"></mat-spinner><span *ngIf="!signSpinner">POTPISI</span></button> 
+            <button mat-button class="button2" (click)="decline(policy)" [disabled]="signSpinner || declineSpinner"><mat-spinner [diameter]="20" *ngIf="declineSpinner"></mat-spinner><span *ngIf="!declineSpinner">ODBIJ</span></button>
           </div>
         </mat-panel-description>
       </mat-expansion-panel-header>

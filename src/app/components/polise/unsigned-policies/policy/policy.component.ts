@@ -12,8 +12,10 @@ export class PolicyComponent implements OnInit {
 
   @Input() policy: any
   @Output() removePolicyEvent = new EventEmitter<number>();
+  @Output() openDialogEvent = new EventEmitter<number>();
   signSpinner : boolean = false
   declineSpinner : boolean = false
+  clickButton: boolean = false;
 
   constructor(private policyService: PolicyService, private toast: NgToastService){}
 
@@ -22,11 +24,13 @@ export class PolicyComponent implements OnInit {
   }
 
   sign(policy: ISignedPolicy){
+    this.clickButton = true;
     this.signSpinner = true
     this.policyService.signOrDecline(policy, true).subscribe({
       next : (res) => {
         this.toast.success({detail: "SUCCESS", summary: "Uspesno potpisana polisa!", duration: 5000});
         this.removePolicyEvent.emit(policy.id);
+        this.openDialogEvent.emit(policy.id)
         console.log("success");
       }, error: (err) => {
         console.log("err");
@@ -35,6 +39,7 @@ export class PolicyComponent implements OnInit {
   }
 
   decline(policy: ISignedPolicy){
+    this.clickButton = true;
     this.declineSpinner = true
     this.policyService.signOrDecline(policy, false).subscribe({
       next : (res) => {
