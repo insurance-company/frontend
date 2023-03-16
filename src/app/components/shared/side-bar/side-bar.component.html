@@ -5,8 +5,9 @@
     <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='MANAGER'">PRIJAVLJENE NESRECE</div>
     <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='MANAGER' || userRole == 'AGENT'">KUPCI</div>
     <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'">POLISE</div>
-    <div routerLink="prodate-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">PRODATE POLISE</div>
+    <div routerLink="potpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">POTPISANE POLISE</div>
     <div routerLink="registracija-menadzera" class="sidebar-option" *ngIf="userRole == 'ADMIN'">REGISTRUJ MENADZERA</div>
     <div routerLink="registracija-agenta" class="sidebar-option" *ngIf="userRole == 'MANAGER'">REGISTRUJ AGENTA</div>
     <div routerLink="statistike" class="sidebar-option" *ngIf="userRole == 'MANAGER'">STATISTIKE</div>
+    <div routerLink="nepotpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">NEPOTPISANE POLISE</div>
 </div>

@@ -1,4 +1,4 @@
-<div class="create-package-button-wrapper">
+<div class="create-package-button-wrapper" *ngIf="userRole == 'ADMIN'">
   <button (click)="openDialog()" class="create-button">Kreiraj paket</button>
 </div>
 <div class="table">

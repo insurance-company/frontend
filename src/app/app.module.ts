@@ -26,6 +26,7 @@ import { AidPackagesDisplayModule } from './components/aid-packages/aid-packages
 import { RegisterManagerComponent } from './components/register/register-manager/register-manager.component';
 import { RegisterAgentComponent } from './components/register/register-agent/register-agent.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { UnsignedPoliciesModule } from './components/polise/unsigned-policies/unsigned-policies.module';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     AccidentValidationModule,
     UsersPoliciesDisplayModule,
     AgentSoldPoliciesDisplayModule,
-    AidPackagesDisplayModule
+    AidPackagesDisplayModule,
+    UnsignedPoliciesModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
