@@ -22,7 +22,17 @@ export class PolicyService {
     return this.http.get<any>('https://localhost:7213/api/Policy/getAllByAgentId/' + agentId + '/' + pageNumber + '/4')
   }
 
+  getAllUnsigned(pageNumber: number) : Observable<any>{
+    const agentId = this.auth.getLoggedUserId()
+    return this.http.get<any>('https://localhost:7213/api/Policy/getAllUnsigned/' + pageNumber + '/4')
+  }
+
   buyPolicy(policy: ISignedPolicy){
     return this.http.post<ISignedPolicy>('https://localhost:7213/api/Policy/buyPolicy', policy)
+  }
+
+  signOrDecline(policy: any, sign: boolean) : Observable<any> {
+    console.log(policy)
+    return this.http.put<any>('https://localhost:7213/api/Policy/SignOrDecline?sign=' + sign + '&policyId=' + policy.id, {})
   }
 }

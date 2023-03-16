@@ -6,9 +6,9 @@
          Oznaka auta: {{ policy.car.registerNumber}}
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>Tip: {{ policy.policy.aidPackage.description }}</p>
-      <p>Pokrice: {{ policy.policy.aidPackage.cover }}</p>
-      <p>Trajanje: {{ policy.policy.aidPackage.durationInMonths }} meseci</p>
+      <p>Tip: {{ policy.aidPackage.description }}</p>
+      <p>Pokrice: {{ policy.aidPackage.cover }}</p>
+      <p>Trajanje: {{ policy.aidPackage.durationInMonths }} meseci</p>
       <p>Datum: {{ policy.date  | date: "dd/MM/yyyy" }}</p>
       <p>Kupac: {{ policy.car.owner.firstName}} {{policy.car.owner.lastName}}, JMBG: {{policy.car.owner.uniqueMasterCitizenNumber}}</p>
     </mat-expansion-panel>

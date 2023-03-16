@@ -1,0 +1,15 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 50px;
+}
+
+.button1{
+    color: greenyellow !important;
+}
+
+.button2{
+    color: red !important;
+}
+

@@ -15,6 +15,7 @@ import { AgentSoldPoliciesDisplayComponent } from './components/polise/agents-so
 import { RegisterManagerComponent } from './components/register/register-manager/register-manager.component';
 import { RegisterAgentComponent } from './components/register/register-agent/register-agent.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { UnsignedPoliciesComponent } from './components/polise/unsigned-policies/unsigned-policies.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -27,10 +28,11 @@ const routes: Routes = [
   {path: 'nesrece', component: UsersAccidentsDisplayComponent},
   {path: 'prijavljene-nesrece', component: AccidentValidationComponent},
   {path: 'polise', component:UsersPoliciesDisplayComponent},
-  {path: 'prodate-polise', component: AgentSoldPoliciesDisplayComponent},
+  {path: 'potpisane-polise', component: AgentSoldPoliciesDisplayComponent},
   {path: 'registracija-menadzera', component: RegisterManagerComponent},
   {path: 'registracija-agenta', component: RegisterAgentComponent},
-  {path: 'statistike', component: StatisticsComponent}
+  {path: 'statistike', component: StatisticsComponent},
+  {path: 'nepotpisane-polise', component: UnsignedPoliciesComponent}
 ];
 
 @NgModule({
