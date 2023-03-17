@@ -1,0 +1,73 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+  <div class="buttons" *ngIf="!towTruck">
+    <button class="button" (click)="bookTowTruck()">ANGAZUJ SLEPER</button>
+    <button class="button" mat-dialog-close="withoutTowTruck">BEZ SLEPERA</button>
+  </div>
+  <mat-stepper orientation="horizontal" [linear]="true" *ngIf="towTruck">
+    <mat-step>
+      <form [formGroup]="startTimeForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Datum i vreme</mat-label>
+          <input formControlName="startTime"
+            matInput
+            required
+            type="datetime-local"
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Sledece</button>
+        </div>
+      </form>
+    </mat-step>
+  <mat-step>
+    <form [formGroup]="durationForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Trajanje (u satima):</mat-label>
+        <input formControlName="duration"
+        matInput
+        required
+        type="number"
+        min="0"
+      />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext (click)="findAvailableTowTrucks()">Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <div class="table-content">
+      <mat-table #table [dataSource]="towTrucks">
+        <ng-container matColumnDef="towingService">
+          <mat-header-cell *matHeaderCellDef>Slep sluzba</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{ item.towingService.address }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="width">
+          <mat-header-cell *matHeaderCellDef>Sirina</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{ item.width }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="length">
+          <mat-header-cell *matHeaderCellDef>Duzina</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{ item.length }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="transportCapacity">
+          <mat-header-cell *matHeaderCellDef>Kapacitet</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{ item.transportCapacity }}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns" class="mat-row" (click)="selectRow(row)"
+        [ngClass]="{hovered: rowHovered, highlighted: row.id  == selectedTruckId}"
+        (mouseover)="hoverRow(true)" (mouseout)="hoverRow(false)"
+        ></mat-row>
+      </mat-table>
+    </div>
+    <div>
+      <button mat-button matStepperPrevious>Nazad</button>
+      <button mat-button matStepperNext (click)="validate()"  mat-button mat-dialog-close="towTruckBooked">Angazuj sleper</button>
+    </div>
+  </mat-step>
+  </mat-stepper>
+</mat-dialog-content>

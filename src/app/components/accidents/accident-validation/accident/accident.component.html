@@ -1,12 +1,16 @@
 <div class="user-wrapper">
   <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel [disabled]="buttonClicked">
       <mat-expansion-panel-header>
         <mat-panel-title>
          Datum: {{ accident.date | date: "dd/MM/yyyy" }}
         </mat-panel-title>
         <mat-panel-description>
           Oznaka auta: {{ accident.car.registerNumber}}
+          <div class="buttons">
+            <button mat-button class="button1" (click)="valid(accident)">VALIDNA</button> 
+            <button mat-button class="button2" (click)="invalid(accident)">NEVALIDNA</button>
+          </div>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>Vlasnik: {{accident.car.owner.firstName}} {{accident.car.owner.lastName}}, {{accident.car.owner.uniqueMasterCitizenNumber}}</p>

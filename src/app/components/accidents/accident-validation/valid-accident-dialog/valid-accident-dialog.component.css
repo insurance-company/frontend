@@ -1,0 +1,43 @@
+.buttons {
+ display: flex;
+ flex-direction: row;
+ width: 250px;
+ height: 200px;
+ margin-top: 100px
+}
+
+.button {
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    height: 50px;
+    background-color: darkblue;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.close{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.table-content  {
+    margin-bottom: 20px;
+}
+
+.mat-row.hovered {
+    cursor: pointer;
+}
+
+.mat-row.highlighted {
+    background: #999;
+}
+
+  ::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+  }
+
+  

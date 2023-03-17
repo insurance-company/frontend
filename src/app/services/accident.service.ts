@@ -22,6 +22,10 @@ export class AccidentService {
   }
 
   create(accident: IAccident) : Observable<any>{
-    return this.http.post<any>('https://localhost:7213/api/Accident/createAccident', accident)
+    return this.http.post<any>('https://localhost:7213/api/Accident/create', accident)
+  }
+
+  validate(accident: IAccident) : Observable<any>{
+    return this.http.put<any>('https://localhost:7213/api/Accident/validate', accident)
   }
 }
