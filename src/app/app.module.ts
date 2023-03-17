@@ -17,16 +17,15 @@ import { AidPackagesDisplayComponent} from './components/aid-packages/aid-packag
 import { BranchesDisplayComponent } from './components/branches/branches-display.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CustomersDisplayComponent } from './components/customers-display/customers-display.component';
-import { UsersPoliciesDisplayModule } from './components/polise/prikaz-korisnikovih-polisa/users-policies-display.module';
+import { UsersPoliciesDisplayModule } from './components/policies/users-policies/users-policies-display.module';
 import { UsersAccidentsDisplayModule } from './components/accidents/users-accidents-display/users-accidents-display.module';
 import { AccidentValidationModule } from './components/accidents/accident-validation/accident-validation.module';
-import { AgentSoldPoliciesDisplayComponent } from './components/polise/agents-sold-policies/agent-sold-display.component';
-import { AgentSoldPoliciesDisplayModule } from './components/polise/agents-sold-policies/agent-sold-policies-display.module';
+import { AgentSoldPoliciesDisplayModule } from './components/policies/agents-sold-policies/agent-sold-policies-display.module';
 import { AidPackagesDisplayModule } from './components/aid-packages/aid-packages-display.module';
 import { RegisterManagerComponent } from './components/register/register-manager/register-manager.component';
 import { RegisterAgentComponent } from './components/register/register-agent/register-agent.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
-import { UnsignedPoliciesModule } from './components/polise/unsigned-policies/unsigned-policies.module';
+import { UnsignedPoliciesModule } from './components/policies/unsigned-policies/unsigned-policies.module';
 
 @NgModule({
   declarations: [
