@@ -10,6 +10,7 @@
     <div routerLink="registracija-agenta" class="sidebar-option" *ngIf="userRole == 'MANAGER'" [ngClass]="{'active' : active == 9}" (click)="active = 9">REGISTRUJ AGENTA</div>
     <div routerLink="statistike" class="sidebar-option" *ngIf="userRole == 'MANAGER'" [ngClass]="{'active' : active == 10}" (click)="active = 10">STATISTIKE</div>
     <div routerLink="nepotpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'" [ngClass]="{'active' : active == 11}" (click)="active = 11">NEPOTPISANE POLISE</div>
+    <div routerLink="automobili" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'" [ngClass]="{'active' : active == 12}" (click)="active = 12">AUTOMOBILI</div>
     <div class="agencyInfo">
         <img src="assets/images/agencyIcon.png"/> 
         <br> {{agency.name}} <br> PIB: {{agency.pib}}

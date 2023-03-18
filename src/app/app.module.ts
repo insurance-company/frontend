@@ -24,6 +24,7 @@ import { RegisterManagerComponent } from './components/register/register-manager
 import { RegisterAgentComponent } from './components/register/register-agent/register-agent.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { UnsignedPoliciesModule } from './components/policies/unsigned-policies/unsigned-policies.module';
+import { CarsDisplayModule } from './components/cars/cars-display.module';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { UnsignedPoliciesModule } from './components/policies/unsigned-policies/
     UsersPoliciesDisplayModule,
     AgentSoldPoliciesDisplayModule,
     AidPackagesDisplayModule,
-    UnsignedPoliciesModule
+    UnsignedPoliciesModule,
+    CarsDisplayModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

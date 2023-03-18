@@ -1,0 +1,77 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+  <mat-stepper orientation="horizontal" [linear]="true">
+    <mat-step>
+      <form [formGroup]="formRegisterNumber">
+        <mat-form-field appearance="fill">
+          <mat-label>Registarska oznaka</mat-label>
+          <input
+            matInput
+            required
+            formControlName="registerNumber"
+          />
+       </mat-form-field>
+       <div>
+          <button mat-button matStepperNext  [disabled]="!formRegisterNumber.valid">Sledece</button>
+       </div>
+      </form>
+    </mat-step>
+  <mat-step>
+    <form [formGroup]="formBrand">
+      <mat-form-field appearance="fill">
+        <mat-label>Marka</mat-label>
+        <input
+            matInput
+            required
+            type="text"
+            formControlName="brand"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext [disabled]="!formBrand.valid">Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="formModel">
+      <mat-form-field appearance="fill">
+        <mat-label>Model</mat-label>
+        <input
+            matInput
+            required
+            type="text"
+            formControlName="model"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext [disabled]="!formModel.valid">Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="formYears">
+      <mat-form-field appearance="fill">
+        <mat-label>Godiste</mat-label>
+        <input
+            matInput
+            required
+            type="number"
+            min="1990"
+            max="2023"
+            formControlName="years"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext mat-dialog-close="create" [disabled]="!formYears.valid" (click)="Create()">Kreiraj</button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-stepper>
+</mat-dialog-content>

@@ -1,7 +1,6 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    padding: 2px;
 }
 .close{
     position: absolute;
@@ -11,14 +10,6 @@
     cursor: pointer;
 }
 
-
-.add-car {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.last-step {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
 }

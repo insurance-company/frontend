@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    padding: 2px;
+    padding: 25px;
 }
 .close{
     position: absolute;
@@ -11,14 +11,7 @@
     cursor: pointer;
 }
 
-
-.add-car {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.last-step {
+.buttons {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
+    justify-content: center;
 }

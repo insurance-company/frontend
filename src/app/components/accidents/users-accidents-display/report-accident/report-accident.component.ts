@@ -17,7 +17,7 @@ function timeValidator(c: FormControl) {
 
 
 @Component({
-  selector: 'prijava-nesrece',
+  selector: 'report-accident',
   templateUrl: './report-accident.component.html',
   styleUrls: ['./report-accident.component.css']
 })
@@ -41,7 +41,7 @@ export class ReportAccidentComponent implements OnInit {
   })
 
   ngOnInit(): void {
-    this.carService.getAllByOwnerId().subscribe({
+    this.carService.getAllByOwner().subscribe({
       next:(res)=>{
         this.cars = res
         console.log(res)

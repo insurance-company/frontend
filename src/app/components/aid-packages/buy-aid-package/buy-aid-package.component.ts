@@ -33,7 +33,7 @@ export class BuyAidPackageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.carService.getAllByOwnerId().subscribe({
+    this.carService.getAllByOwner().subscribe({
       next:(res)=>{
         this.cars = res
         console.log(res)

@@ -12,8 +12,20 @@ export class CarService {
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
-  getAllByOwnerId() : Observable<any>{
-    const ownerId = this.auth.getLoggedUserId()
-    return this.http.get<ICar[]>('https://localhost:7213/api/Car/getAllByOwnerId/' + ownerId)
+  getAllByOwner() : Observable<any>{
+    return this.http.get<ICar[]>('https://localhost:7213/api/Car/getAllByOwner')
+  }
+
+  
+  Create(car: ICar) : Observable<any> {
+    return this.http.post<any>('https://localhost:7213/api/Car/Create', car)
+  }
+
+  Update(car: ICar) : Observable<any> {
+    return this.http.put<any>('https://localhost:7213/api/Car/Update', car)
+  }
+
+  Remove(id: number) : Observable<any>{
+    return this.http.delete<any>('https://localhost:7213/api/Car/Remove?carId=' + id)
   }
 }

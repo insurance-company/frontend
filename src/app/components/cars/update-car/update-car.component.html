@@ -1,0 +1,43 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+      <form [formGroup]="formCar">
+        <div class="wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Registarska oznaka</mat-label>
+          <input
+            matInput
+            required
+            formControlName="registerNumber"
+           />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Marka</mat-label>
+          <input
+            matInput
+            required
+            formControlName="brand"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Model</mat-label>
+          <input
+            matInput
+            required
+            formControlName="model"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Trajanje</mat-label>
+          <input
+            matInput
+            required
+            formControlName="years"
+          />
+        </mat-form-field>
+        </div>
+        <div class="buttons">
+          <button mat-button mat-dialog-close="canceled">Odustani</button>
+          <button mat-button mat-dialog-close="save" (click)="Update()" [disabled]="!formCar.valid">Sacuvaj</button>
+        </div>
+      </form>
+</mat-dialog-content>

@@ -16,6 +16,7 @@ import { RegisterAgentComponent } from './components/register/register-agent/reg
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { UnsignedPoliciesComponent } from './components/policies/unsigned-policies/unsigned-policies.component';
 import { RoleGuard } from './guards/role.guard';
+import { CarsDisplayComponent } from './components/cars/cars-display.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -31,7 +32,9 @@ const routes: Routes = [
   {path: 'registracija-menadzera', component: RegisterManagerComponent, canActivate: [AuthGuard, RoleGuard], data: { role: ['ADMIN']}},
   {path: 'registracija-agenta', component: RegisterAgentComponent, canActivate: [AuthGuard, RoleGuard], data: { role: ['MANAGER']}},
   {path: 'statistike', component: StatisticsComponent , canActivate: [AuthGuard, RoleGuard], data: { role: ['MANAGER']}},
-  {path: 'nepotpisane-polise', component: UnsignedPoliciesComponent, canActivate: [AuthGuard, RoleGuard], data: { role: ['AGENT']}}
+  {path: 'nepotpisane-polise', component: UnsignedPoliciesComponent, canActivate: [AuthGuard, RoleGuard], data: { role: ['AGENT']}},
+  {path: 'automobili', component: CarsDisplayComponent, canActivate: [AuthGuard, RoleGuard], data: { role: ['CUSTOMER']}},
+
 ];
 
 @NgModule({
