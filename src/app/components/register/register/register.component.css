@@ -1,16 +1,10 @@
-.title {
-  justify-content: center;
-  align-content: center;
-}
-
 .box {
+  position: relative;
+  top: 0;
   max-width: 700px;
-  max-height: 550px;
-  overflow-y: scroll;
 }
 .example-full-width{
   display: flex;
-  flex-direction: column;
 }
 
 .gender {
@@ -21,6 +15,19 @@
 .button {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.example-radio-button{
+  margin-left: 7px;
+}
+mat-grid-tile {
+  background:#fafafa;
+}
+.width-50{
+  width: 49%;
+}
+
+.ml-2{
+  margin-left: 2%;
 }

@@ -22,9 +22,9 @@
       <ng-container matColumnDef="actions">
         <mat-header-cell  *matHeaderCellDef ></mat-header-cell>
         <mat-cell *matCellDef="let row" >
-             <button *ngIf="userRole == 'CUSTOMER'" mat-button (click)="buyAidPackage(row)">Kupi</button>
-             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="openUpdateDialog(row)">Izmeni</button>
-             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="Remove(row)">Izbrisi</button>
+             <button *ngIf="userRole == 'CUSTOMER'" mat-button (click)="buyAidPackage(row)">KUPI</button>
+             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="openUpdateDialog(row)">IZMENI</button>
+             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="Remove(row)">IZBRISI</button>
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

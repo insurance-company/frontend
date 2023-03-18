@@ -1,38 +1,46 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
-      <mat-card-header class="title">
-        <mat-card-title>Registracija</mat-card-title>
-      </mat-card-header>
       <form class="example-form" [formGroup]="registerForm">
-        <mat-card-content>
-            <mat-form-field class="example-full-width">
-                <input formControlName="firstName" matInput placeholder="Ime">
+        <mat-card-content class="card">
+            <mat-form-field class="width-50">
+                <mat-label>Ime</mat-label>
+                <input formControlName="firstName" matInput>
+                <mat-error *ngIf="registerForm.controls['firstName'].dirty && registerForm.hasError('required', 'firstName')">Ime je obavezno</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['firstName'].dirty && registerForm.hasError('required', 'firstName')">Ime je obavezno</small>
-            <mat-form-field class="example-full-width">
-                <input formControlName="lastName" matInput placeholder="Prezime">
+            <mat-form-field class="width-50 ml-2">
+                <mat-label>Prezime</mat-label>
+                <input formControlName="lastName" matInput>
+                <mat-error class="width-50 ml-2" *ngIf="registerForm.controls['lastName'].dirty && registerForm.hasError('required', 'lastName')">Prezime je obavezno</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['lastName'].dirty && registerForm.hasError('required', 'lastName')">Prezime je obavezno</small>
             <mat-form-field class="example-full-width">
-                <input formControlName="uniqueMasterCitizenNumber" matInput placeholder="JMBG">
+                <mat-label>JMBG</mat-label>
+                <input formControlName="uniqueMasterCitizenNumber" matInput>
+                <mat-error *ngIf="registerForm.controls['uniqueMasterCitizenNumber'].dirty && registerForm.hasError('required', 'uniqueMasterCitizenNumber')">JMBG je obavezan</mat-error>
+                <mat-error *ngIf="registerForm.controls['uniqueMasterCitizenNumber'].dirty && !registerForm.hasError('required', 'uniqueMasterCitizenNumber')">JMBG mora sadrzati 13 cifara</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['uniqueMasterCitizenNumber'].dirty && registerForm.hasError('required', 'uniqueMasterCitizenNumber')">JMBG je obavezan</small>
             <mat-form-field class="example-full-width">
-                <input formControlName="phoneNumber" matInput placeholder="Broj Telefona">
+                <mat-label>Broj telefona</mat-label>
+                <input formControlName="phoneNumber" matInput>
+                <mat-error *ngIf="registerForm.controls['phoneNumber'].dirty && registerForm.hasError('required', 'phoneNumber')">Broj telefona je obavezan</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['phoneNumber'].dirty && registerForm.hasError('required', 'phoneNumber')">Broj telefona je obavezan</small>
             <mat-form-field class="example-full-width">
-                <input formControlName="address" matInput placeholder="Adresa">
+                <mat-label>Adresa</mat-label>
+                <input formControlName="address" matInput>
+                <mat-error *ngIf="registerForm.controls['address'].dirty && registerForm.hasError('required', 'address')">Adresa je obavezna</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['address'].dirty && registerForm.hasError('required', 'address')">Adresa je obavezna</small>
-            <mat-form-field class="example-full-width">
-                <input formControlName="email" matInput placeholder="Email">
+            <mat-form-field class="width-50">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+                <mat-error *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')">Email je obavezan</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')">Email je obavezan</small>
-            <mat-form-field class="example-full-width">
-                <input formControlName="password" type="password" matInput placeholder="Lozinka">
+            <mat-form-field class="width-50 ml-2">
+                <mat-label>Lozinka</mat-label>
+                <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')">Lozinka je obavezna</mat-error>
             </mat-form-field>
-            <small *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')">Sifra je obavezna</small>
             <div class="gender">
                 <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="0">MUSKO
                 <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="1">ZENSKO
