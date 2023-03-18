@@ -11,3 +11,7 @@
     color: white;
     cursor: pointer;
 }
+
+.deleteButton {
+    color:  red !important;
+}

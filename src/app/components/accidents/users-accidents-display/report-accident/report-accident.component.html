@@ -11,6 +11,8 @@
             required
             formControlName="date"
           />
+          <mat-error *ngIf="formDate.controls['date'].dirty && formDate.hasError('required', 'date')">Unesite datum</mat-error>
+          <mat-error *ngIf="formDate.controls['date'].dirty && !formDate.hasError('required', 'date')">Izaberite datum u proslosti</mat-error>
         </mat-form-field>
 
         <div>

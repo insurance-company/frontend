@@ -13,6 +13,7 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>Opis: {{ accident.description }}</p>
+      <p *ngIf="accident.status != 2">Slep sluzba: <span *ngIf="accident.towTruck == null">Bez slepera</span> <span *ngIf="accident.towTruck != null">{{accident.towTruck.towingService.address}}</span></p>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

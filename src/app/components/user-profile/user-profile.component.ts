@@ -30,7 +30,6 @@ export class UserProfileComponent {
     this.auth.getCurrentUser().subscribe({
       next : (res) =>{
         this.user = res
-        console.log(res)
         this.registerForm.controls["firstName"].setValue(this.user.firstName)  
         this.registerForm.controls["lastName"].setValue(this.user.lastName)
         this.registerForm.controls["uniqueMasterCitizenNumber"].setValue(this.user.uniqueMasterCitizenNumber)

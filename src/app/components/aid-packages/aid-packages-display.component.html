@@ -24,9 +24,16 @@
         <mat-cell *matCellDef="let row" >
              <button *ngIf="userRole == 'CUSTOMER'" mat-button (click)="buyAidPackage(row)">KUPI</button>
              <button *ngIf="userRole == 'ADMIN'" mat-button (click)="openUpdateDialog(row)">IZMENI</button>
-             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="Remove(row)">IZBRISI</button>
+             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="Remove(row)" class="deleteButton">IZBRISI</button>
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
+    <mat-paginator
+      [pageSize]="4"
+      [length]="totalCount"
+      (page)="onPageChanged($event)"
+      [pageIndex]="pageNumber"
+      >
+    </mat-paginator>

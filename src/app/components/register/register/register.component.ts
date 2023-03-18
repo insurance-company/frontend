@@ -31,10 +31,10 @@ export class RegisterComponent {
   onSubmit(){
     this.auth.register(this.registerForm.value).subscribe({
       next: (res) => {
-        this.toast.success({detail: "SUCCESS", summary: "Uspesna registracija!", duration: 5000});
         this.auth.storeToken(res.token)
-        this.router.navigate(['/dashboard']).then(() => {
-          window.location.reload();
+        localStorage.setItem('login', "true")
+        this.router.navigate(['/paketi-pomoci']).then(() => {
+          this.toast.success({detail: "SUCCESS", summary: "Uspesna registracija!", duration: 2000});
         })
       },
       error: (err) => {

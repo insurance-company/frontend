@@ -11,9 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from './components/shared/shared.module';
-import { AidPackagesDisplayComponent} from './components/aid-packages/aid-packages-display.component';
 import { BranchesDisplayComponent } from './components/branches/branches-display.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CustomersDisplayComponent } from './components/customers-display/customers-display.component';
@@ -34,7 +32,6 @@ import { UnsignedPoliciesModule } from './components/policies/unsigned-policies/
     RegisterComponent,
     RegisterManagerComponent,
     RegisterAgentComponent,
-    DashboardComponent,
     CustomersDisplayComponent,
     BranchesDisplayComponent,
     UserProfileComponent,

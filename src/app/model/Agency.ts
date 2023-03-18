@@ -1,4 +1,4 @@
 export interface IAgency{
-    PIB: string;
+    pib: string;
     name: string;
 }

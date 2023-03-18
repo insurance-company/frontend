@@ -13,8 +13,8 @@ export class AidPackageService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getAll() : Observable<IAidPackage[]>{
-    return this.http.get<IAidPackage[]>('https://localhost:7213/api/AidPackage')
+  getAll(pageNumber: number) : Observable<any>{
+    return this.http.get<any>('https://localhost:7213/api/AidPackage/getAll/' + pageNumber + "/4")
   }
 
   Create(aidPackage: IAidPackage) : Observable<any> {

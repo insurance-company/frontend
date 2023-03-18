@@ -36,6 +36,7 @@ export class AuthService {
 
   storeToken(tokenValue: string){
     localStorage.setItem('token', tokenValue)
+    this.userPayload = this.decodeToken()
   }
 
   getToken(){

@@ -5,20 +5,31 @@ import { CarService } from 'src/app/services/car.service';
 import { AccidentService } from 'src/app/services/accident.service';
 import { ICar } from 'src/app/model/Car';
 
+function timeValidator(c: FormControl) {
+  const chosenTime = new Date(c.value)
+  if(chosenTime > new Date()) {
+    return {dateValidator: {valid: false}};
+  }
+  else {
+      return null
+  }
+}
+
+
 @Component({
   selector: 'prijava-nesrece',
   templateUrl: './report-accident.component.html',
   styleUrls: ['./report-accident.component.css']
 })
+
 export class ReportAccidentComponent implements OnInit {
 
   cars: ICar[] = []
-
   constructor(private carService: CarService, private accidentService: AccidentService, private toast: NgToastService){}
 
   
   formDate : FormGroup = new FormGroup({
-    date: new FormControl(null, [Validators.required]),
+    date: new FormControl(null, [Validators.required, timeValidator]),
   });
 
   formCarId : FormGroup = new FormGroup({

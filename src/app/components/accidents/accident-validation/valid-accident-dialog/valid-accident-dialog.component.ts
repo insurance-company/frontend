@@ -9,6 +9,16 @@ import { AidPackageService } from 'src/app/services/aidPackage.service';
 import { PdfService } from 'src/app/services/pdf.service';
 import { TowTruckService } from 'src/app/services/towTruck.service';
 
+function timeValidator(c: FormControl) {
+  const chosenTime = new Date(c.value)
+  if(chosenTime < new Date()) {
+    return {dateValidator: {valid: false}};
+  }
+  else {
+      return null
+  }
+}
+
 @Component({
   selector: 'valid-accident-dialog',
   templateUrl: './valid-accident-dialog.component.html',
@@ -26,7 +36,7 @@ export class ValidAccidentDialogComponent implements OnInit {
 
 
   startTimeForm : FormGroup = new FormGroup({
-    startTime: new FormControl(null, [Validators.required]),
+    startTime: new FormControl(null, [Validators.required, timeValidator]),
   });
 
   durationForm : FormGroup = new FormGroup({
@@ -34,6 +44,7 @@ export class ValidAccidentDialogComponent implements OnInit {
   })
 
   ngOnInit(): void {}
+  
 
   bookTowTruck(){
     this.towTruck = true

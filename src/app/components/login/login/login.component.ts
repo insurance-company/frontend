@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  hide: boolean = true
   loginForm!: FormGroup
   constructor(private fb: FormBuilder, private auth: AuthService, private toast: NgToastService, private router: Router) {}
 
@@ -24,10 +25,21 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.auth.login(this.loginForm.value).subscribe({
       next: (res) => {
-        this.auth.storeToken(res.token)
-        this.router.navigate(['/dashboard']).then(() => {
-          window.location.reload();
-        })
+        this.auth.storeToken(res.token)   
+        const role = this.auth.getRole() 
+        localStorage.setItem('login', "true")
+        if (role == "MANAGER")
+          this.router.navigate(['/statistike']).then(() => {
+            window.location.reload();
+          })
+        else if (role == "AGENT")
+          this.router.navigate(['/nepotpisane-polise']).then(() => {
+            window.location.reload();
+          })
+        else 
+          this.router.navigate(['/paketi-pomoci']).then(() => {
+            window.location.reload();
+          })
       },
       error: (err) => {
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});

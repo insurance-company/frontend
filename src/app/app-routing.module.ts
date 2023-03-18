@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccidentValidationComponent } from './components/accidents/accident-validation/accident-validation.component';
 import { UsersAccidentsDisplayComponent } from './components/accidents/users-accidents-display/users-accidents-display.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BranchesDisplayComponent } from './components/branches/branches-display.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { AidPackagesDisplayComponent} from './components/aid-packages/aid-packages-display.component';
@@ -21,7 +20,6 @@ import { RoleGuard } from './guards/role.guard';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registracija', component: RegisterComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path: 'kupci', component: CustomersDisplayComponent, canActivate: [AuthGuard, RoleGuard], data: { role: ['AGENT', 'MANAGER']}},
   {path: 'paketi-pomoci', component: AidPackagesDisplayComponent},
   {path: 'filijale', component: BranchesDisplayComponent},

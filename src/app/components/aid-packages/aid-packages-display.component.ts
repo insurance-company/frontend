@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { NgToastComponent, NgToastService } from 'ng-angular-popup';
-import { IAidPackage } from 'src/app/model/AidPackage';
+import {  NgToastService } from 'ng-angular-popup';
 import { AidPackageService } from 'src/app/services/aidPackage.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CreateAidPackageComponent } from './create-aid-package/create-aid-package.component';
@@ -21,6 +19,8 @@ export class AidPackagesDisplayComponent implements OnInit {
   displayedColumns: string[] = ["tip", "cena", "pokrice", "trajanjeUMesecima", "actions"]
   isLoggedIn: boolean = false
   userRole: string = ""
+  pageNumber: number = 0
+  totalCount: number = 0
 
   constructor(private aidPackageService: AidPackageService, private dialog: MatDialog, private auth: AuthService, private toast: NgToastService){}
 
@@ -30,9 +30,19 @@ export class AidPackagesDisplayComponent implements OnInit {
     if (this.isLoggedIn){
       this.userRole = this.auth.getRole()
     }
-   this.aidPackageService.getAll().subscribe(res=>{
-    this.aidPackages = new MatTableDataSource(res);
+   this.aidPackageService.getAll(this.pageNumber).subscribe(res=>{
+    this.aidPackages = new MatTableDataSource(res.data);
+    this.totalCount = res.totalCount
    })
+  }
+
+  
+  onPageChanged(e : any){
+    this.pageNumber = e.pageIndex;
+    this.aidPackageService.getAll(this.pageNumber).subscribe(res=>{
+      this.aidPackages = new MatTableDataSource(res.data);
+      this.totalCount = res.totalCount
+     })
   }
 
   buyAidPackage(row: any){
@@ -55,8 +65,9 @@ export class AidPackagesDisplayComponent implements OnInit {
     this.aidPackageService.Remove(row.id).subscribe({
       next:(res)=>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno izbrisan paket pomoci!", duration: 5000});
-        this.aidPackageService.getAll().subscribe(res=>{
-          this.aidPackages = new MatTableDataSource(res);
+        this.aidPackageService.getAll(this.pageNumber).subscribe(res=>{
+          this.aidPackages = new MatTableDataSource(res.data);
+          this.totalCount = res.totalCount
          })
       },
       error: (err)=>{
@@ -72,9 +83,10 @@ export class AidPackagesDisplayComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;
       this.aidPackages = new MatTableDataSource<any>()
-      this.aidPackageService.getAll().subscribe({
+      this.aidPackageService.getAll(this.pageNumber).subscribe({
         next:(res)=>{
-          this.aidPackages.data = res
+          this.aidPackages.data = res.data
+          this.totalCount = res.totalCount
         }, error:(err)=>{
 
         }
@@ -97,9 +109,10 @@ export class AidPackagesDisplayComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;
       this.aidPackages = new MatTableDataSource<any>()
-      this.aidPackageService.getAll().subscribe({
+      this.aidPackageService.getAll(this.pageNumber).subscribe({
         next:(res)=>{
-          this.aidPackages.data = res
+          this.aidPackages.data = res.data
+          this.totalCount = res.totalCount
         }, error:(err)=>{
 
         }
