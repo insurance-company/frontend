@@ -15,6 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterManagerComponent {
 
+  hide: boolean = true
   branches: IBranch[] = []
   workers: IUser[] = []
   registerForm!: FormGroup
@@ -37,7 +38,7 @@ export class RegisterManagerComponent {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      uniqueMasterCitizenNumber:['', Validators.required],
+      uniqueMasterCitizenNumber:['', [Validators.required, Validators.pattern("[0-9]{13}")]],
       phoneNumber:['', Validators.required],
       address:['', Validators.required],
       gender:[0, Validators.required],
@@ -45,7 +46,7 @@ export class RegisterManagerComponent {
       password: ['', Validators.required],
       role: [1],
       bossId: [0], 
-      managesTheBranchId: [0, Validators.required]
+      managesTheBranchId: [, Validators.required]
     })
   }
 

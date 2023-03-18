@@ -15,6 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterAgentComponent {
 
+  hide: boolean = true
   workers: IUser[] = []
   registerForm!: FormGroup
   constructor(private fb: FormBuilder, private auth: AuthService, private branchService: BranchService, private userService: UserService, private toast: NgToastService, private router: Router) {}
@@ -30,7 +31,7 @@ export class RegisterAgentComponent {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      uniqueMasterCitizenNumber:['', Validators.required],
+      uniqueMasterCitizenNumber:['', [Validators.required, Validators.pattern("[0-9]{13}")]],
       phoneNumber:['', Validators.required],
       address:['', Validators.required],
       gender:[0, Validators.required],
