@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="users-wrapper">
-    <nesreca *ngFor="let accident of accidents" [accident]="accident"></nesreca>
+    <accident (removeAccidentEvent)="removeAccident()" (openDialogEvent)="openDialog($event)" *ngFor="let accident of accidents" [accident]="accident"></accident>
   </div>
   <mat-paginator
   [pageSize]="4"

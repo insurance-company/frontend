@@ -42,7 +42,7 @@ export class ReportAccidentComponent implements OnInit {
   }
 
   report(){
-    this.accidentService.create({date: this.formDate.controls.date.value, description: this.formDescription.controls.description.value, carId: this.formCarId.controls.carId.value, towTruckId: -1, status: 2}).subscribe({
+    this.accidentService.create({id: 0, towingDuration: -1, towingStartTime: new Date(), date: this.formDate.controls.date.value, description: this.formDescription.controls.description.value, carId: this.formCarId.controls.carId.value, towTruckId: -1, status: 2}).subscribe({
         next:(res)=>{
           this.toast.success({detail: "SUCCESS", summary: "Uspesna prijava nesrece!", duration: 5000});
         }, error:(err)=>{
