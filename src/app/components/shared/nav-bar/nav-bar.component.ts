@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit{
+
+  @Output() deactivateSidebar = new EventEmitter<boolean>();
   constructor(private authService: AuthService, private router: Router) { }
 
   isLoggedIn:boolean = false;
@@ -24,5 +26,9 @@ export class NavBarComponent implements OnInit{
     this.router.navigate(['/login']).then(() => {
       window.location.reload();
     });
+  }
+
+  onClick(){
+    this.deactivateSidebar.emit()
   }
 }

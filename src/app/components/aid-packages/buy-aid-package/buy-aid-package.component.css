@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    padding: 2px;
 }
 .close{
     position: absolute;

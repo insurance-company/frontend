@@ -1,6 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgToastService } from 'ng-angular-popup';
 import { IAccident } from 'src/app/model/Accident';
@@ -25,12 +25,12 @@ export class ValidAccidentDialogComponent implements OnInit {
   constructor(private towTruckService: TowTruckService, private accidentService: AccidentService, private toast: NgToastService){}
 
 
-  startTimeForm = new FormGroup({
-    startTime: new FormControl(),
+  startTimeForm : FormGroup = new FormGroup({
+    startTime: new FormControl(null, [Validators.required]),
   });
 
-  durationForm = new FormGroup({
-    duration: new FormControl()
+  durationForm : FormGroup = new FormGroup({
+    duration: new FormControl(null, [Validators.required])
   })
 
   ngOnInit(): void {}
@@ -40,7 +40,7 @@ export class ValidAccidentDialogComponent implements OnInit {
   }
 
   findAvailableTowTrucks(){
-    this.towTruckService.getAvailable(this.startTimeForm.controls.startTime.value, this.durationForm.controls.duration.value).subscribe({
+    this.towTruckService.getAvailable(this.startTimeForm.controls['startTime'].value, this.durationForm.controls['duration'].value).subscribe({
       next : (res) => {
         this.towTrucks.data = res
         console.log(res)
@@ -61,8 +61,8 @@ export class ValidAccidentDialogComponent implements OnInit {
  
   validate(){
     this.accident.status = 0
-    this.accident.towingStartTime = this.startTimeForm.controls.startTime.value
-    this.accident.towingDuration = this.durationForm.controls.duration.value
+    this.accident.towingStartTime = this.startTimeForm.controls['startTime'].value
+    this.accident.towingDuration = this.durationForm.controls['duration'].value
     this.accident.towTruckId = this.selectedTruckId
     this.accidentService.validate(this.accident).subscribe({
       next : (res) => {

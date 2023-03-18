@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastComponent, NgToastService } from 'ng-angular-popup';
 import { CarService } from 'src/app/services/car.service';
 import { AccidentService } from 'src/app/services/accident.service';
@@ -17,16 +17,16 @@ export class ReportAccidentComponent implements OnInit {
   constructor(private carService: CarService, private accidentService: AccidentService, private toast: NgToastService){}
 
   
-  formDate = new FormGroup({
-    date: new FormControl(),
+  formDate : FormGroup = new FormGroup({
+    date: new FormControl(null, [Validators.required]),
   });
 
-  formCarId = new FormGroup({
-    carId: new FormControl()
+  formCarId : FormGroup = new FormGroup({
+    carId: new FormControl(null, [Validators.required])
   })
 
-  formDescription = new FormGroup({
-    description: new FormControl()
+  formDescription : FormGroup = new FormGroup({
+    description: new FormControl(null, [Validators.required])
   })
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class ReportAccidentComponent implements OnInit {
   }
 
   report(){
-    this.accidentService.create({id: 0, towingDuration: -1, towingStartTime: new Date(), date: this.formDate.controls.date.value, description: this.formDescription.controls.description.value, carId: this.formCarId.controls.carId.value, towTruckId: -1, status: 2}).subscribe({
+    this.accidentService.create({id: 0, towingDuration: -1, towingStartTime: new Date(), date: this.formDate.controls['date'].value, description: this.formDescription.controls['description'].value, carId: this.formCarId.controls['carId'].value, towTruckId: -1, status: 2}).subscribe({
         next:(res)=>{
           this.toast.success({detail: "SUCCESS", summary: "Uspesna prijava nesrece!", duration: 5000});
         }, error:(err)=>{

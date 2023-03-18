@@ -1,6 +1,14 @@
 .box {
   max-width: 700px;
 }
+
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  color:darkblue
+}
+
 .example-full-width{
   display: flex;
   flex-direction: column;
@@ -9,4 +17,12 @@
 .pol {
   display: flex;
   justify-content: center;
+}
+
+.width-50{
+  width: 49%;
+}
+
+.ml-2{
+  margin-left: 2%;
 }

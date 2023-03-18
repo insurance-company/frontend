@@ -3,18 +3,18 @@
   <mat-stepper orientation="horizontal" [linear]="true">
     <mat-step>
       <form [formGroup]="formDate">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="date">
           <mat-label>Datum</mat-label>
           <input
             matInput
-            type="datetime-local"
+            type="date"
             required
             formControlName="date"
           />
         </mat-form-field>
 
         <div>
-          <button mat-button matStepperNext>Sledece</button>
+          <button mat-button matStepperNext [disabled]="!formDate.valid">Sledece</button>
         </div>
       </form>
     </mat-step>
@@ -34,7 +34,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext>Sledece</button>
+        <button mat-button matStepperNext [disabled]="!formCarId.valid">Sledece</button>
       </div>
     </form>
   </mat-step>
@@ -53,7 +53,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext mat-dialog-close="report" (click)="report()">Prijavi</button>
+        <button mat-button matStepperNext mat-dialog-close="report" (click)="report()" [disabled]="!formDescription.valid">Prijavi</button>
       </div>
     </form>
   </mat-step>

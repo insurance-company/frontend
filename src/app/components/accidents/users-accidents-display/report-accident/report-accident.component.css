@@ -6,3 +6,15 @@
     padding: 5px;
     cursor: pointer;
 }
+
+.mdc-text-field__input::-webkit-calendar-picker-indicator {
+    display: block !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+
+.date{
+    width: 250px;
+}

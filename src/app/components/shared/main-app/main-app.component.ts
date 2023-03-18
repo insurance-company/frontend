@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'main-app',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-app.component.css']
 })
 export class MainAppComponent {
-
+  sidebarActiveSubject: Subject<any> = new Subject();
+  deactivateSidebar(){
+    this.sidebarActiveSubject.next(-1)
+  }
 }

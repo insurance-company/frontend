@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastComponent, NgToastService } from 'ng-angular-popup';
 import { CarService } from 'src/app/services/car.service';
 import { AccidentService } from 'src/app/services/accident.service';
@@ -27,8 +27,8 @@ export class BuyAidPackageComponent implements OnInit {
     description: new FormControl(),
   });
 
-  formCarId = new FormGroup({
-    carId: new FormControl()
+  formCarId : FormGroup = new FormGroup({
+    carId: new FormControl(null, [Validators.required])
   })
 
 
@@ -46,7 +46,7 @@ export class BuyAidPackageComponent implements OnInit {
 
 
   buy(){
-    this.policyService.buyPolicy({id: 0, aidPackageId: this.aidPackageId, carId: this.formCarId.controls.carId.value, agentId:0, date: new Date()}).subscribe({
+    this.policyService.buyPolicy({id: 0, aidPackageId: this.aidPackageId, carId: this.formCarId.controls['carId'].value, agentId:0, date: new Date()}).subscribe({
         next:(res)=>{
           this.toast.success({detail: "SUCCESS", summary: "Uspesan zahtev za kupovinu polise!", duration: 5000});
         }, error:(err)=>{

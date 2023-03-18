@@ -62,7 +62,7 @@
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext mat-dialog-close="buy" (click)='buy()'>Kupi</button>
+        <button mat-button matStepperNext mat-dialog-close="buy" (click)='buy()' [disabled]="!formCarId.valid">Kupi</button>
       </div>
     </form>
   </mat-step>
