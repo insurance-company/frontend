@@ -48,8 +48,7 @@ export class RegisterAgentComponent {
     console.log(this.registerForm.value)
     this.auth.registerAgent(this.registerForm.value).subscribe({
       next: (res) => {
-        this.toast.success({detail: "SUCCESS", summary: "Uspesna registracija agenta!", duration: 5000});
-        console.log(res)
+          this.toast.success({detail: "SUCCESS", summary: "Uspesna registracija agenta!", duration: 5000});
       },
       error: (err) => {
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});

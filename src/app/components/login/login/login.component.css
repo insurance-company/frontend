@@ -18,7 +18,8 @@ body {
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
 }
 .login-wrapper {
-  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 .positronx {
   text-decoration: none;
@@ -37,7 +38,7 @@ body {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   z-index: 5;
-  max-width: 330px;
+  max-width: 430px;
 }
 .box.back {
   transform: scale(.95);
