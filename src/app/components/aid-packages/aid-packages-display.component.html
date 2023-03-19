@@ -8,12 +8,12 @@
         <mat-cell *matCellDef="let item">{{ item.description }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="cena">
-        <mat-header-cell *matHeaderCellDef>Cena</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Cena ($)</mat-header-cell>
         <mat-cell *matCellDef="let item">{{ item.price }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="pokrice">
-        <mat-header-cell *matHeaderCellDef>Pokrice</mat-header-cell>
-        <mat-cell *matCellDef="let item">{{ item.cover }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef>Pokrice ($)</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.cover}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="trajanjeUMesecima">
         <mat-header-cell *matHeaderCellDef>Trajanje u mesecima</mat-header-cell>

@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgToastService } from 'ng-angular-popup';
 import { IAccident } from 'src/app/model/Accident';
@@ -32,7 +33,7 @@ export class ValidAccidentDialogComponent implements OnInit {
   selectedTruckId : number = -1 
   rowHovered : boolean = false
   displayedColumns: string[] = ["towingService", "length", "width", "transportCapacity"]
-  constructor(private towTruckService: TowTruckService, private accidentService: AccidentService, private toast: NgToastService){}
+  constructor(private towTruckService: TowTruckService, private accidentService: AccidentService, private toast: NgToastService, private dialogRef: MatDialogRef<ValidAccidentDialogComponent>){}
 
 
   startTimeForm : FormGroup = new FormGroup({
@@ -78,6 +79,7 @@ export class ValidAccidentDialogComponent implements OnInit {
     this.accidentService.validate(this.accident).subscribe({
       next : (res) => {
         this.toast.success({detail: "SUCCESS", summary:"Nesreca uspesno validirana!"})
+        this.dialogRef.close("towTruckBooked")
       }, error : (err) => {
         console.log("error")
       }

@@ -18,3 +18,20 @@
 .date{
     width: 250px;
 }
+
+.table {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.table-content  {
+    margin-bottom: 20px;
+}
+
+.mat-row.hovered {
+    cursor: pointer;
+}
+
+.mat-row.highlighted {
+    background: #999;
+}

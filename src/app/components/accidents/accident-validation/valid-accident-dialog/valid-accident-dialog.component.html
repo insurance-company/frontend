@@ -68,7 +68,7 @@
     </div>
     <div>
       <button mat-button matStepperPrevious>Nazad</button>
-      <button mat-button matStepperNext (click)="validate()"  mat-button mat-dialog-close="towTruckBooked" [disabled]="selectedTruckId == -1">Angazuj sleper</button>
+      <button mat-button matStepperNext (click)="validate()"  mat-button [disabled]="selectedTruckId == -1">Angazuj sleper</button>
     </div>
   </mat-step>
   </mat-stepper>
