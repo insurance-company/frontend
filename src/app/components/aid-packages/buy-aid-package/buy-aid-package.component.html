@@ -48,21 +48,23 @@
     </mat-step>
   <mat-step>
     <form [formGroup]="formCarId">
-      <mat-form-field appearance="fill">
-        <mat-label>Auto:</mat-label>
-        <mat-select formControlName="carId">
-          <mat-option
-          *ngFor="let car of cars"
-            value="{{ car.id }}"
-          >
-            {{ car.registerNumber }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
+      <div class="last-step">
+        <mat-form-field appearance="fill">
+          <mat-label>Auto:</mat-label>
+          <mat-select formControlName="carId">
+            <mat-option
+            *ngFor="let car of cars"
+              value="{{ car.id }}"
+            >
+              {{ car.registerNumber }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <a href="./automobili" class="add-car">Dodaj novi automobil</a>
+      </div>
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext mat-dialog-close="buy" (click)='buy()'>Kupi</button>
+        <button mat-button matStepperNext mat-dialog-close="buy" (click)='buy()' [disabled]="!formCarId.valid">Kupi</button>
       </div>
     </form>
   </mat-step>

@@ -1,3 +1,8 @@
+.table {
+    height: 200px;
+    overflow-y: scroll;
+}
+
 .buttons {
  display: flex;
  flex-direction: row;
@@ -36,8 +41,15 @@
     background: #999;
 }
 
-  ::ng-deep .mat-horizontal-stepper-header{
-    pointer-events: none !important;
-  }
+.mdc-text-field__input::-webkit-calendar-picker-indicator {
+    display: block !important;
+}
 
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+
+.date{
+    width: 250px;
+}
   

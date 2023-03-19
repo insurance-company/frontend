@@ -7,7 +7,7 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p>Tip: {{ policy.aidPackage.description }}</p>
-      <p>Pokrice: {{ policy.aidPackage.cover }}</p>
+      <p>Pokrice: {{ policy.aidPackage.cover}}$</p>
       <p>Trajanje: {{ policy.aidPackage.durationInMonths }} meseci</p>
       <p>Datum: <span *ngIf="policy.agent != null">{{ policy.date  | date: "dd/MM/yyyy" }}</span></p>
       <p>Agent: <span *ngIf="policy.agent != null">{{ policy.agent.firstName}} {{policy.agent.lastName}}, Br. Licence {{policy.agent.licenceNumber}}</span></p>

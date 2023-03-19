@@ -5,8 +5,7 @@
 
 .box {
   max-width: 700px;
-  max-height: 550px;
-  overflow-y: scroll;
+  margin-top: -20px;
 }
 .example-full-width{
   display: flex;
@@ -23,4 +22,11 @@
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.width-50{
+  width: 49%;
+}
+
+.ml-2{
+  margin-left: 2%;
 }

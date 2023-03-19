@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    padding: 2px;
 }
 .close{
     position: absolute;
@@ -8,4 +9,16 @@
     right: 2px;
     padding: 5px;
     cursor: pointer;
+}
+
+
+.add-car {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.last-step {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }

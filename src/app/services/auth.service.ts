@@ -18,7 +18,7 @@ export class AuthService {
     this.userPayload = this.decodeToken()
    }
 
-  register(userObj: IUser){
+  register(userObj: IUser) : Observable<any>{
     return this.http.post<any>('https://localhost:7213/api/Auth/register', userObj)
   }
 
@@ -36,6 +36,7 @@ export class AuthService {
 
   storeToken(tokenValue: string){
     localStorage.setItem('token', tokenValue)
+    this.userPayload = this.decodeToken()
   }
 
   getToken(){

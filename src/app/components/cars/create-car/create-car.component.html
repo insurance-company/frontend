@@ -2,75 +2,73 @@
   <button class="close" mat-button mat-dialog-close="canceled">X</button>
   <mat-stepper orientation="horizontal" [linear]="true">
     <mat-step>
-      <form [formGroup]="formDescription">
+      <form [formGroup]="formRegisterNumber">
         <mat-form-field appearance="fill">
-          <mat-label>Tip</mat-label>
+          <mat-label>Registarska oznaka</mat-label>
           <input
             matInput
             required
-            formControlName="description"
+            formControlName="registerNumber"
           />
        </mat-form-field>
        <div>
-          <button mat-button matStepperNext  [disabled]="!formDescription.valid">Sledece</button>
+          <button mat-button matStepperNext  [disabled]="!formRegisterNumber.valid">Sledece</button>
        </div>
       </form>
     </mat-step>
   <mat-step>
-    <form [formGroup]="formPrice">
+    <form [formGroup]="formBrand">
       <mat-form-field appearance="fill">
-        <mat-label>Cena</mat-label>
+        <mat-label>Marka</mat-label>
         <input
             matInput
             required
-            type="number"
-            min="0"
-            formControlName="price"
+            type="text"
+            formControlName="brand"
           />
       </mat-form-field>
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formPrice.valid">Sledece</button>
+        <button mat-button matStepperNext [disabled]="!formBrand.valid">Sledece</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
-    <form [formGroup]="formCover">
+    <form [formGroup]="formModel">
       <mat-form-field appearance="fill">
-        <mat-label>Pokrice</mat-label>
+        <mat-label>Model</mat-label>
         <input
             matInput
             required
-            type="number"
-            min="0"
-            formControlName="cover"
+            type="text"
+            formControlName="model"
           />
       </mat-form-field>
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formCover.valid">Sledece</button>
+        <button mat-button matStepperNext [disabled]="!formModel.valid">Sledece</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
-    <form [formGroup]="formDurationInMonths">
+    <form [formGroup]="formYears">
       <mat-form-field appearance="fill">
-        <mat-label>Trajanje u mesecima</mat-label>
+        <mat-label>Godiste</mat-label>
         <input
             matInput
             required
             type="number"
-            min="0"
-            max="24"
-            formControlName="durationInMonths"
+            min="1990"
+            max="2023"
+            formControlName="years"
           />
       </mat-form-field>
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext mat-dialog-close="create" [disabled]="!formDurationInMonths.valid" (click)="Create()">Kreiraj</button>
+        <button mat-button matStepperNext mat-dialog-close="create" [disabled]="!formYears.valid" (click)="Create()">Kreiraj</button>
       </div>
     </form>
   </mat-step>

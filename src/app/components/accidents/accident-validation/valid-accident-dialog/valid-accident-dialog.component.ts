@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgToastService } from 'ng-angular-popup';
 import { IAccident } from 'src/app/model/Accident';
@@ -8,6 +9,16 @@ import { AccidentService } from 'src/app/services/accident.service';
 import { AidPackageService } from 'src/app/services/aidPackage.service';
 import { PdfService } from 'src/app/services/pdf.service';
 import { TowTruckService } from 'src/app/services/towTruck.service';
+
+function timeValidator(c: FormControl) {
+  const chosenTime = new Date(c.value)
+  if(chosenTime < new Date()) {
+    return {dateValidator: {valid: false}};
+  }
+  else {
+      return null
+  }
+}
 
 @Component({
   selector: 'valid-accident-dialog',
@@ -22,25 +33,26 @@ export class ValidAccidentDialogComponent implements OnInit {
   selectedTruckId : number = -1 
   rowHovered : boolean = false
   displayedColumns: string[] = ["towingService", "length", "width", "transportCapacity"]
-  constructor(private towTruckService: TowTruckService, private accidentService: AccidentService, private toast: NgToastService){}
+  constructor(private towTruckService: TowTruckService, private accidentService: AccidentService, private toast: NgToastService, private dialogRef: MatDialogRef<ValidAccidentDialogComponent>){}
 
 
-  startTimeForm = new FormGroup({
-    startTime: new FormControl(),
+  startTimeForm : FormGroup = new FormGroup({
+    startTime: new FormControl(null, [Validators.required, timeValidator]),
   });
 
-  durationForm = new FormGroup({
-    duration: new FormControl()
+  durationForm : FormGroup = new FormGroup({
+    duration: new FormControl(null, [Validators.required])
   })
 
   ngOnInit(): void {}
+  
 
   bookTowTruck(){
     this.towTruck = true
   }
 
   findAvailableTowTrucks(){
-    this.towTruckService.getAvailable(this.startTimeForm.controls.startTime.value, this.durationForm.controls.duration.value).subscribe({
+    this.towTruckService.getAvailable(this.startTimeForm.controls['startTime'].value, this.durationForm.controls['duration'].value).subscribe({
       next : (res) => {
         this.towTrucks.data = res
         console.log(res)
@@ -61,12 +73,13 @@ export class ValidAccidentDialogComponent implements OnInit {
  
   validate(){
     this.accident.status = 0
-    this.accident.towingStartTime = this.startTimeForm.controls.startTime.value
-    this.accident.towingDuration = this.durationForm.controls.duration.value
+    this.accident.towingStartTime = this.startTimeForm.controls['startTime'].value
+    this.accident.towingDuration = this.durationForm.controls['duration'].value
     this.accident.towTruckId = this.selectedTruckId
     this.accidentService.validate(this.accident).subscribe({
       next : (res) => {
         this.toast.success({detail: "SUCCESS", summary:"Nesreca uspesno validirana!"})
+        this.dialogRef.close("towTruckBooked")
       }, error : (err) => {
         console.log("error")
       }

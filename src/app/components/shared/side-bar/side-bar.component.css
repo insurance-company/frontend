@@ -23,6 +23,11 @@
       background-color: #202020;
       border-radius: 1em;
     }
+
+    .active {
+      background-color: #202020;
+      border-radius: 1em;
+    }
   
     .nav-icon{
       display: flex;
@@ -51,4 +56,10 @@
   
   ::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
+  }
+
+  .agencyInfo {
+    position: absolute;
+    bottom:100px;
+    left: 80px;
   }

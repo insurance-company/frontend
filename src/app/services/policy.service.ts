@@ -35,4 +35,8 @@ export class PolicyService {
     console.log(policy)
     return this.http.put<any>('https://localhost:7213/api/Policy/SignOrDecline?sign=' + sign + '&policyId=' + policy.id, {})
   }
+
+  getAllValidByCustomer() : Observable<any>{
+    return this.http.get<any>('https://localhost:7213/api/Policy/getAllValidByCustomer')
+  }
 }

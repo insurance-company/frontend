@@ -23,21 +23,21 @@ export class UpdateAidPackageComponent implements OnInit {
   constructor(private aidPackageService: AidPackageService, private toast: NgToastService){}
 
   
-  formPackage = new FormGroup({
+  formPackage : FormGroup = new FormGroup({
     id: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
-    cover: new FormControl(),
-    durationInMonths: new FormControl()
+    description: new FormControl(null, [Validators.required]),
+    price: new FormControl(null, [Validators.required]),
+    cover: new FormControl(null, [Validators.required]),
+    durationInMonths: new FormControl(null, [Validators.required])
   });
 
 
   ngOnInit(): void {
-    this.formPackage.controls.id.setValue(this.id)
-    this.formPackage.controls.description.setValue(this.description)
-    this.formPackage.controls.price.setValue(this.price)
-    this.formPackage.controls.cover.setValue(this.cover)
-    this.formPackage.controls.durationInMonths.setValue(this.durationInMonths)
+    this.formPackage.controls["id"].setValue(this.id)
+    this.formPackage.controls["description"].setValue(this.description)
+    this.formPackage.controls["price"].setValue(this.price)
+    this.formPackage.controls["cover"].setValue(this.cover)
+    this.formPackage.controls["durationInMonths"].setValue(this.durationInMonths)
   }
 
 

@@ -6,13 +6,18 @@
       <form class="example-form" [formGroup]="loginForm">
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input formControlName="email" matInput placeholder="Email">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput>
+            <mat-error *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email je obavezan</mat-error>
           </mat-form-field>
-          <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email je obavezan</small>
           <mat-form-field class="example-full-width">
-            <input formControlName="password" type="password" matInput placeholder="Sifra">
+            <mat-label>Lozinka</mat-label>
+            <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">Lozinka je obavezna</mat-error>
           </mat-form-field>
-          <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">Sifra je obavezna</small>
         </mat-card-content>
         <button (click)="onSubmit()" [disabled]="loginForm.invalid" mat-stroked-button color="accent" class="btn-block">Prijavi se</button>
       </form>

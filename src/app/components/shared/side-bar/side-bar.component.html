@@ -1,13 +1,18 @@
 <div class="sidebar-wrapper">
-    <div routerLink='paketi-pomoci' class="sidebar-option">PAKETI POMOCI</div>
-    <div routerLink='filijale' class="sidebar-option">FILIJALE</div>
-    <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='CUSTOMER'">NESRECE</div>
-    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='MANAGER'">PRIJAVLJENE NESRECE</div>
-    <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='MANAGER' || userRole == 'AGENT'">KUPCI</div>
-    <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'">POLISE</div>
-    <div routerLink="potpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">POTPISANE POLISE</div>
-    <div routerLink="registracija-menadzera" class="sidebar-option" *ngIf="userRole == 'ADMIN'">REGISTRUJ MENADZERA</div>
-    <div routerLink="registracija-agenta" class="sidebar-option" *ngIf="userRole == 'MANAGER'">REGISTRUJ AGENTA</div>
-    <div routerLink="statistike" class="sidebar-option" *ngIf="userRole == 'MANAGER'">STATISTIKE</div>
-    <div routerLink="nepotpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'">NEPOTPISANE POLISE</div>
+    <div routerLink='paketi-pomoci' class="sidebar-option" [ngClass]="{'active' : active == 1}" (click)="active = 1">PAKETI POMOCI</div>
+    <div routerLink='filijale' class="sidebar-option" [ngClass]="{'active' : active == 2}" (click)="active = 2">FILIJALE</div>
+    <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='CUSTOMER'" [ngClass]="{'active' : active == 3}" (click)="active = 3">NESRECE</div>
+    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='MANAGER'" [ngClass]="{'active' : active == 4}" (click)="active = 4">PRIJAVLJENE NESRECE</div>
+    <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='MANAGER' || userRole == 'AGENT'" [ngClass]="{'active' : active == 5}" (click)="active = 5">KUPCI</div>
+    <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'" [ngClass]="{'active' : active == 6}" (click)="active = 6">POLISE</div>
+    <div routerLink="potpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'" [ngClass]="{'active' : active == 7}" (click)="active = 7">POTPISANE POLISE</div>
+    <div routerLink="registracija-menadzera" class="sidebar-option" *ngIf="userRole == 'ADMIN'" [ngClass]="{'active' : active == 8}" (click)="active = 8">REGISTRUJ MENADZERA</div>
+    <div routerLink="registracija-agenta" class="sidebar-option" *ngIf="userRole == 'MANAGER'" [ngClass]="{'active' : active == 9}" (click)="active = 9">REGISTRUJ AGENTA</div>
+    <div routerLink="statistike" class="sidebar-option" *ngIf="userRole == 'MANAGER'" [ngClass]="{'active' : active == 10}" (click)="active = 10">STATISTIKE</div>
+    <div routerLink="nepotpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'" [ngClass]="{'active' : active == 11}" (click)="active = 11">NEPOTPISANE POLISE</div>
+    <div routerLink="automobili" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'" [ngClass]="{'active' : active == 12}" (click)="active = 12">AUTOMOBILI</div>
+    <div class="agencyInfo">
+        <img src="assets/images/agencyIcon.png"/> 
+        <br> {{agency.name}} <br> PIB: {{agency.pib}}
+    </div>
 </div>

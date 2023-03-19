@@ -1,0 +1,31 @@
+<div class="create-package-button-wrapper">
+  <button  class="create-button" (click)="openDialog()">Dodaj</button>
+</div>
+<div class="table">
+    <mat-table #table [dataSource]="cars">
+      <ng-container matColumnDef="registerNumber">
+        <mat-header-cell *matHeaderCellDef>Registarska oznaka</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.registerNumber }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef>Marka</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.brand }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef>Model</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.model }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="years">
+        <mat-header-cell *matHeaderCellDef>Godiste</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.years }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell  *matHeaderCellDef ></mat-header-cell>
+        <mat-cell *matCellDef="let row" >
+             <button  mat-button (click)="openUpdateDialog(row)">IZMENI</button>
+             <button  mat-button (click)="Remove(row)" class="deleteButton">IZBRISI</button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>

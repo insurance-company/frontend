@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { AidPackageService } from 'src/app/services/aidPackage.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'create-aid-package',
@@ -15,19 +16,19 @@ export class CreateAidPackageComponent implements OnInit {
 
   
   formDescription = new FormGroup({
-    description: new FormControl(),
+    description: new FormControl("", Validators.required),
   });
 
-  formPrice = new FormGroup({
-    price: new FormControl()
+  formPrice: FormGroup = new FormGroup({
+    price: new FormControl(null, [Validators.required])
   })
 
-  formCover = new FormGroup({
-    cover: new FormControl()
+  formCover : FormGroup = new FormGroup({
+    cover: new FormControl(null, [Validators.required])
   })
 
-  formDurationInMonths = new FormGroup({
-    durationInMonths: new FormControl()
+  formDurationInMonths : FormGroup = new FormGroup({
+    durationInMonths: new FormControl(null, [Validators.required])
   })
 
 
@@ -35,7 +36,7 @@ export class CreateAidPackageComponent implements OnInit {
 
 
   Create(){
-    this.aidPackageService.Create({id: 0, description: this.formDescription.controls.description.value, price: this.formPrice.controls.price.value, cover: this.formCover.controls.cover.value, durationInMonths: this.formDurationInMonths.controls.durationInMonths.value}).subscribe({
+    this.aidPackageService.Create({id: 0, description: this.formDescription.controls.description.value?.toString() , price: this.formPrice.controls['price'].value, cover: this.formCover.controls['cover'].value, durationInMonths: this.formDurationInMonths.controls['durationInMonths'].value}).subscribe({
       next: (res) =>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno kreiranje paketa!", duration: 5000});
       }, error: (err) =>{
