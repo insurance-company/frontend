@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
-import { ISignedPolicy } from 'src/app/model/SignedPolicy';
+import { IPolicy } from 'src/app/model/Policy';
 import { PolicyService } from 'src/app/services/policy.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { PolicyService } from 'src/app/services/policy.service';
 export class PolicyComponent implements OnInit {
 
   @Input() policy: any
-  @Output() removePolicyEvent = new EventEmitter<number>();
-  @Output() openDialogEvent = new EventEmitter<number>();
+  @Output() removePolicyEvent = new EventEmitter<any>();
+  @Output() openDialogEvent = new EventEmitter<any>();
   signSpinner : boolean = false
   declineSpinner : boolean = false
   clickButton: boolean = false;
@@ -23,14 +23,14 @@ export class PolicyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sign(policy: ISignedPolicy){
+  sign(policy: IPolicy){
     this.clickButton = true;
     this.signSpinner = true
     this.policyService.signOrDecline(policy, true).subscribe({
       next : (res) => {
         this.toast.success({detail: "SUCCESS", summary: "Uspesno potpisana polisa!", duration: 5000});
-        this.removePolicyEvent.emit(policy.id);
-        this.openDialogEvent.emit(policy.id)
+        this.removePolicyEvent.emit({"aidPackageId": policy.aidPackageId, "carId": policy.carId});
+        this.openDialogEvent.emit({"aidPackageId": policy.aidPackageId, "carId": policy.carId})
         console.log("success");
       }, error: (err) => {
         console.log("err");
@@ -38,13 +38,13 @@ export class PolicyComponent implements OnInit {
     })
   }
 
-  decline(policy: ISignedPolicy){
+  decline(policy: IPolicy){
     this.clickButton = true;
     this.declineSpinner = true
     this.policyService.signOrDecline(policy, false).subscribe({
       next : (res) => {
         this.toast.success({detail: "SUCCESS", summary: "Uspesno odbijena polisa", duration: 5000});
-        this.removePolicyEvent.emit(policy.id);
+        this.removePolicyEvent.emit({aidPackageId: policy.aidPackageId, carId: policy.carId});
       }, error: (err) => {
         console.log("err");
       }

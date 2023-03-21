@@ -11,8 +11,8 @@ export class PdfService {
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) { }
 
-  generatePolicyPDF(policyId: number) : Observable<any>{
+  generatePolicyPDF(aidPackageId: number, carId: number) : Observable<any>{
     const buyerId = this.auth.getLoggedUserId()
-    return this.http.get('https://localhost:7213/api/PDF/getPolicyPDF?id=' + policyId, {observe: 'response', responseType: 'blob'})
+    return this.http.get('https://localhost:7213/api/PDF/getPolicyPDF?aidPackageid=' + aidPackageId + "&carId=" + carId, {observe: 'response', responseType: 'blob'})
   }
 }

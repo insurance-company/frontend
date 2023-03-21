@@ -27,7 +27,8 @@ function timeValidator(c: FormControl) {
 export class ReportAccidentComponent implements OnInit {
 
   policies = new MatTableDataSource<any>([])
-  selectedPolicyId : number = -1 
+  selectedPolicyCarId : number = -1 
+  selectedPolicyAidPackageId : number = -1 
   rowHovered : boolean = false
   displayedColumns: string[] = ["car", "description", "cover"]
   constructor(private policyService: PolicyService, private accidentService: AccidentService, private toast: NgToastService){}
@@ -54,7 +55,7 @@ export class ReportAccidentComponent implements OnInit {
   }
 
   report(){
-    this.accidentService.create({id: 0, towingDuration: -1, towingStartTime: new Date(), date: this.formDate.controls['date'].value, description: this.formDescription.controls['description'].value, policyId: this.selectedPolicyId, towTruckId: -1, status: 2}).subscribe({
+    this.accidentService.create({id: 0, towingDuration: -1, towingStartTime: new Date(), date: this.formDate.controls['date'].value, description: this.formDescription.controls['description'].value, policyCarId: this.selectedPolicyCarId, policyAidPackageId: this.selectedPolicyAidPackageId, towTruckId: -1, status: 2}).subscribe({
         next:(res)=>{
           this.toast.success({detail: "SUCCESS", summary: "Uspesna prijava nesrece!", duration: 5000});
         }, error:(err)=>{
@@ -66,7 +67,8 @@ export class ReportAccidentComponent implements OnInit {
   
   selectRow(row: any){
     console.log(row)
-    this.selectedPolicyId = row.id
+    this.selectedPolicyCarId = row.carId
+    this.selectedPolicyAidPackageId = row.aidPackageId
   } 
 
   hoverRow(hover: boolean){

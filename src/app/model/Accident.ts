@@ -4,7 +4,8 @@ export interface IAccident {
     id: number
     description: string;
     date: Date;
-    policyId: number;
+    policyAidPackageId: number;
+    policyCarId: number;
     towTruckId: number;
     towingStartTime: Date;
     towingDuration: number;

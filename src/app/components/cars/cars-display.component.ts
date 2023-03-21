@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import {  NgToastService } from 'ng-angular-popup';
-import { AidPackageService } from 'src/app/services/aidPackage.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CarService } from 'src/app/services/car.service';
 import { CreateCarComponent } from './create-car/create-car.component';
@@ -69,14 +68,16 @@ export class CarsDisplayComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;
       this.cars = new MatTableDataSource<any>()
-      this.carService.getAllByOwner().subscribe({
-        next:(res)=>{
-          this.cars = res
-        }, error:(err)=>{
+      window.setTimeout(() => { 
+        this.carService.getAllByOwner().subscribe({
+          next:(res)=>{
+            this.cars.data = res
+          }, error:(err)=>{
 
-        }
+        }})
+        
+      }, 1000)
       })  
-    });
   }
 
   openUpdateDialog(row: any){

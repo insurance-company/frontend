@@ -16,7 +16,10 @@ export class CarService {
     return this.http.get<ICar[]>('https://localhost:7213/api/Car/getAllByOwner')
   }
 
-  
+  getAllAvailableToPurchaseAidPackage(aidPackageId: number) : Observable<any> {
+    return this.http.get<ICar[]>('https://localhost:7213/api/Car/getAllAvailableToPurchaseAidPackage?aidPackageId=' + aidPackageId)
+  }
+
   Create(car: ICar) : Observable<any> {
     return this.http.post<any>('https://localhost:7213/api/Car/Create', car)
   }

@@ -37,14 +37,14 @@
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns" class="mat-row" (click)="selectRow(row)"
-        [ngClass]="{hovered: rowHovered, highlighted: row.id  == selectedPolicyId}"
+        [ngClass]="{hovered: rowHovered, highlighted: row.carId  == selectedPolicyCarId && row.aidPackageId == selectedPolicyAidPackageId}"
         (mouseover)="hoverRow(true)" (mouseout)="hoverRow(false)"
         ></mat-row>
       </mat-table>
       </div>
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="selectedPolicyId == -1">Sledece</button>
+        <button mat-button matStepperNext [disabled]="selectedPolicyCarId == -1">Sledece</button>
       </div>
   </mat-step>
 

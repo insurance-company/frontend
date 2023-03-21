@@ -33,7 +33,7 @@ export class BuyAidPackageComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.carService.getAllByOwner().subscribe({
+    this.carService.getAllAvailableToPurchaseAidPackage(this.aidPackageId).subscribe({
       next:(res)=>{
         this.cars = res
         console.log(res)
@@ -46,7 +46,7 @@ export class BuyAidPackageComponent implements OnInit {
 
 
   buy(){
-    this.policyService.buyPolicy({id: 0, aidPackageId: this.aidPackageId, carId: this.formCarId.controls['carId'].value, agentId:0, date: new Date()}).subscribe({
+    this.policyService.buyPolicy({aidPackageId: this.aidPackageId, carId: this.formCarId.controls['carId'].value, agentId:0, date: new Date()}).subscribe({
         next:(res)=>{
           this.toast.success({detail: "SUCCESS", summary: "Uspesan zahtev za kupovinu polise!", duration: 5000});
         }, error:(err)=>{

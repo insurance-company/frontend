@@ -11,13 +11,14 @@ import { PdfService } from 'src/app/services/pdf.service';
 })
 export class ExportToPdfComponent implements OnInit {
 
-  id : number = 0
+  aidPackageId : number = 0
+  carId : number = 0
   constructor(private pdfService: PdfService){}
 
   ngOnInit(): void {}
 
   GeneratePDF(){
-    this.pdfService.generatePolicyPDF(this.id).subscribe(res=>{
+    this.pdfService.generatePolicyPDF(this.aidPackageId, this.carId).subscribe(res=>{
       let blob: Blob = res.body as Blob
       let url = window.URL.createObjectURL(blob)
       window.open(url)

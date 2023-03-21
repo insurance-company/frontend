@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ISignedPolicy } from '../model/SignedPolicy';
+import { IPolicy } from '../model/Policy';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -27,13 +27,13 @@ export class PolicyService {
     return this.http.get<any>('https://localhost:7213/api/Policy/getAllUnsigned/' + pageNumber + '/4')
   }
 
-  buyPolicy(policy: ISignedPolicy){
-    return this.http.post<ISignedPolicy>('https://localhost:7213/api/Policy/buyPolicy', policy)
+  buyPolicy(policy: IPolicy){
+    return this.http.post<IPolicy>('https://localhost:7213/api/Policy/buyPolicy', policy)
   }
 
   signOrDecline(policy: any, sign: boolean) : Observable<any> {
     console.log(policy)
-    return this.http.put<any>('https://localhost:7213/api/Policy/SignOrDecline?sign=' + sign + '&policyId=' + policy.id, {})
+    return this.http.put<any>('https://localhost:7213/api/Policy/SignOrDecline?sign=' + sign + '&aidPackageId=' + policy.aidPackageId + "&carId=" + policy.carId, {})
   }
 
   getAllValidByCustomer() : Observable<any>{

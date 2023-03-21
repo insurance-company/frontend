@@ -20,6 +20,7 @@ export class UnsignedPoliciesComponent implements OnInit {
 
   ngOnInit(): void {
    this.policyService.getAllUnsigned(this.pageNumber).subscribe(res=>{
+    console.log(res.data)
     this.policies = res.data
     this.totalCount = res.totalCount
    })
@@ -55,7 +56,8 @@ export class UnsignedPoliciesComponent implements OnInit {
     let dialogRef = this.dialog.open(ExportToPdfComponent, {
       disableClose: true,
     });
-    dialogRef.componentInstance.id = evt
+    dialogRef.componentInstance.aidPackageId = evt.aidPackageId
+    dialogRef.componentInstance.carId = evt.carId
   }
 
 
