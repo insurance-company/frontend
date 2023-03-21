@@ -25,6 +25,7 @@ import { RegisterAgentComponent } from './components/register/register-agent/reg
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { UnsignedPoliciesModule } from './components/policies/unsigned-policies/unsigned-policies.module';
 import { CarsDisplayModule } from './components/cars/cars-display.module';
+import { BranchesDisplayModule } from './components/branches/branches-display.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,6 @@ import { CarsDisplayModule } from './components/cars/cars-display.module';
     RegisterManagerComponent,
     RegisterAgentComponent,
     CustomersDisplayComponent,
-    BranchesDisplayComponent,
     UserProfileComponent,
     StatisticsComponent
   ],
@@ -53,7 +53,8 @@ import { CarsDisplayModule } from './components/cars/cars-display.module';
     AgentSoldPoliciesDisplayModule,
     AidPackagesDisplayModule,
     UnsignedPoliciesModule,
-    CarsDisplayModule
+    CarsDisplayModule,
+    BranchesDisplayModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

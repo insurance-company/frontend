@@ -1,3 +1,4 @@
+import { IAddress } from "./Address";
 import { Gender } from "./enum/Gender";
 
 export interface IUser{
@@ -9,6 +10,6 @@ export interface IUser{
     lastName: string;
     uniqueMasterCitizenNumber:string;
     phoneNumber:string;
-    address:string;
+    address:IAddress;
     gender: Gender;    
 }

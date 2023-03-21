@@ -18,4 +18,16 @@ export class BranchService {
   getAllWithoutPagination() : Observable<IBranch[]>{
     return this.http.get<IBranch[]>('https://localhost:7213/api/Branch/getAllWithoutPagination')
   }
+
+  Create(branch: IBranch) : Observable<any> {
+    return this.http.post<any>('https://localhost:7213/api/Branch/Create', branch)
+  }
+
+  Update(branch: IBranch) : Observable<any> {
+    return this.http.put<any>('https://localhost:7213/api/Branch/Update', branch)
+  }
+
+  Remove(id: number) : Observable<any>{
+    return this.http.delete<any>('https://localhost:7213/api/Branch/Remove?branchId=' + id)
+  }
 }

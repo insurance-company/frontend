@@ -1,0 +1,75 @@
+<mat-dialog-content class="content">
+  <button class="close" mat-button mat-dialog-close="canceled">X</button>
+  <mat-stepper orientation="horizontal" [linear]="true">
+    <mat-step>
+      <form [formGroup]="formStreet">
+        <mat-form-field appearance="fill">
+          <mat-label>Ulica</mat-label>
+          <input
+            matInput
+            required
+            formControlName="street"
+          />
+       </mat-form-field>
+       <div>
+          <button mat-button matStepperNext  [disabled]="!formStreet.valid">Sledece</button>
+       </div>
+      </form>
+    </mat-step>
+  <mat-step>
+    <form [formGroup]="formNumber">
+      <mat-form-field appearance="fill">
+        <mat-label>Broj</mat-label>
+        <input
+            matInput
+            required
+            type="text"
+            formControlName="number"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext [disabled]="!formNumber.valid">Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="formCity">
+      <mat-form-field appearance="fill">
+        <mat-label>Grad</mat-label>
+        <input
+            matInput
+            required
+            type="text"
+            formControlName="city"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext [disabled]="!formCity.valid">Sledece</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form [formGroup]="formCountry">
+      <mat-form-field appearance="fill">
+        <mat-label>Drzava</mat-label>
+        <input
+            matInput
+            required
+            type="text"
+            formControlName="country"
+          />
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperNext mat-dialog-close="create" [disabled]="!formCountry.valid" (click)="Create()">Kreiraj</button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-stepper>
+</mat-dialog-content>

@@ -1,7 +1,8 @@
+import { IAddress } from "./Address";
 import { IAgency } from "./Agency";
 
 export interface IBranch{
     id: number;
-    agency: IAgency;
-    address: string;
+    agencyId: number;
+    address: IAddress;
 }

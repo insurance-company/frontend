@@ -1,43 +1,43 @@
 <mat-dialog-content class="content">
   <button class="close" mat-button mat-dialog-close="canceled">X</button>
-      <form [formGroup]="formCar">
-        <div class="wrapper">
+      <form [formGroup]="formPackage">
+        <div class="wrapper" formGroupName="address">
         <mat-form-field appearance="fill">
-          <mat-label>Registarska oznaka</mat-label>
+          <mat-label>Ulica</mat-label>
           <input
             matInput
             required
-            formControlName="registerNumber"
+            formControlName="street"
            />
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Marka</mat-label>
+          <mat-label>Broj</mat-label>
           <input
             matInput
             required
-            formControlName="brand"
+            formControlName="number"
           />
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Model</mat-label>
+          <mat-label>Grad</mat-label>
           <input
             matInput
             required
-            formControlName="model"
+            formControlName="city"
           />
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Godiste</mat-label>
+          <mat-label>Drzava</mat-label>
           <input
             matInput
             required
-            formControlName="years"
+            formControlName="country"
           />
         </mat-form-field>
         </div>
         <div class="buttons">
           <button mat-button mat-dialog-close="canceled">Odustani</button>
-          <button mat-button mat-dialog-close="save" (click)="Update()" [disabled]="!formCar.valid">Sacuvaj</button>
+          <button mat-button mat-dialog-close="save" (click)="Update()" [disabled]="!formPackage.valid">Sacuvaj</button>
         </div>
       </form>
 </mat-dialog-content>

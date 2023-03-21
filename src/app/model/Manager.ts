@@ -12,5 +12,6 @@ export interface IManager{
     address:string;
     gender: Gender;   
     bossId: number; 
-    managesTheBranchId: number;
+    WorksInBranchId: number;
+    numberOfValidatedAccidents: number;
 }

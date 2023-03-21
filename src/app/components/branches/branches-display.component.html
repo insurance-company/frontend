@@ -1,8 +1,17 @@
+<div class="button-wrapper" *ngIf="userRole == 'ADMIN'">
+  <button (click)="openDialog()" class="create-button">Kreiraj filijalu</button>
+</div>
 <div class="table">
     <mat-table #table [dataSource]="branches">
       <ng-container matColumnDef="adresa">
         <mat-header-cell *matHeaderCellDef>Adresa</mat-header-cell>
-        <mat-cell *matCellDef="let item">{{ item.address }}</mat-cell>
+        <mat-cell *matCellDef="let item">{{ item.address.street}} {{item.address.number}} {{item.address.city}} {{item.address.country}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell  *matHeaderCellDef ></mat-header-cell>
+        <mat-cell *matCellDef="let row" >
+             <button *ngIf="userRole == 'ADMIN'" mat-button (click)="openUpdateDialog(row)">IZMENI</button>
+        </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>

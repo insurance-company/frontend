@@ -33,7 +33,12 @@ export class RegisterAgentComponent {
       lastName: ['', Validators.required],
       uniqueMasterCitizenNumber:['', [Validators.required, Validators.pattern("[0-9]{13}")]],
       phoneNumber:['', Validators.required],
-      address:['', Validators.required],
+      address: this.fb.group({
+        street: ['', Validators.required],
+        number: ['', Validators.required],
+        city: ['', Validators.required],
+        country: [, Validators.required]
+      }),
       gender:[0, Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],

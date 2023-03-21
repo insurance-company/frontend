@@ -40,19 +40,25 @@ export class RegisterManagerComponent {
       lastName: ['', Validators.required],
       uniqueMasterCitizenNumber:['', [Validators.required, Validators.pattern("[0-9]{13}")]],
       phoneNumber:['', Validators.required],
-      address:['', Validators.required],
+      address: this.fb.group({
+        street: ['', Validators.required],
+        number: ['', Validators.required],
+        city: ['', Validators.required],
+        country: ['', Validators.required]
+      }),
       gender:[0, Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       role: [1],
       bossId: [0], 
-      managesTheBranchId: [, Validators.required]
+      worksInBranchId: [, Validators.required],
+      numberOfValidatedAccidents: [0]
     })
   }
 
   onSubmit(){
     this.registerForm.controls['bossId'].setValue(parseInt(this.registerForm.controls['bossId'].value))
-    this.registerForm.controls['managesTheBranchId'].setValue(parseInt(this.registerForm.controls['managesTheBranchId'].value))
+    this.registerForm.controls['worksInBranchId'].setValue(parseInt(this.registerForm.controls['worksInBranchId'].value))
     console.log(this.registerForm.value)
     this.auth.registerManager(this.registerForm.value).subscribe({
       next: (res) => {

@@ -34,7 +34,7 @@ export class UserProfileComponent {
         this.registerForm.controls["lastName"].setValue(this.user.lastName)
         this.registerForm.controls["uniqueMasterCitizenNumber"].setValue(this.user.uniqueMasterCitizenNumber)
         this.registerForm.controls["phoneNumber"].setValue(this.user.phoneNumber)
-        this.registerForm.controls["address"].setValue(this.user.address)
+        this.registerForm.controls["address"].setValue(this.user.address.street + " " + this.user.address.number + " " + this.user.address.city + ", " + this.user.address.country)
         this.registerForm.controls["gender"].setValue(this.user.gender)
         this.registerForm.controls["email"].setValue(this.user.email)      
         this.registerForm.disable()

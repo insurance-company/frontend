@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.close{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}

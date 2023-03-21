@@ -31,3 +31,8 @@
 .ml-2{
   margin-left: 2%;
 }
+
+.select {
+  max-height: 180px;
+  overflow-y: auto;
+}
