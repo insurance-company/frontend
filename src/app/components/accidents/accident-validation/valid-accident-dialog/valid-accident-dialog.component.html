@@ -49,15 +49,15 @@
         </ng-container>
         <ng-container matColumnDef="width">
           <mat-header-cell *matHeaderCellDef>Sirina</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{ item.width }}</mat-cell>
+          <mat-cell *matCellDef="let item">{{item.width}}m</mat-cell>
         </ng-container>
         <ng-container matColumnDef="length">
           <mat-header-cell *matHeaderCellDef>Duzina</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{ item.length }}</mat-cell>
+          <mat-cell *matCellDef="let item">{{item.length}}m</mat-cell>
         </ng-container>
         <ng-container matColumnDef="transportCapacity">
           <mat-header-cell *matHeaderCellDef>Kapacitet</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{ item.transportCapacity }}</mat-cell>
+          <mat-cell *matCellDef="let item">{{item.transportCapacity}}t</mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns" class="mat-row" (click)="selectRow(row)"
