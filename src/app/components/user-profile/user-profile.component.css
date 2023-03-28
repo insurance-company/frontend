@@ -1,3 +1,8 @@
+.profile-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
 .box {
   max-width: 700px;
 }

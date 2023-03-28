@@ -1,4 +1,4 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="content-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <form class="example-form" [formGroup]="registerForm">
         <mat-card-content>
@@ -56,7 +56,9 @@
             <mat-form-field class="width-50 ml-2">
                 <mat-label>Sef</mat-label>
                 <mat-select formControlName="bossId" required="false">
-                  <mat-option *ngFor="let worker of workers" value="{{worker.id}}">{{ worker.firstName }} {{worker.lastName}}</mat-option>
+                    <div class="select">
+                      <mat-option *ngFor="let worker of workers" value="{{worker.id}}">{{ worker.firstName }} {{worker.lastName}}</mat-option>
+                    </div>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="width-50">
@@ -78,7 +80,7 @@
             </div>
         </mat-card-content>
         <div class="button">
-            <button (click)="onSubmit()" [disabled]="registerForm.invalid" mat-stroked-button color="accent" class="btn-block">Registruj</button>
+            <button type="button" (click)="onSubmit()" [disabled]="registerForm.invalid" mat-stroked-button color="accent" class="btn-block">Registruj</button>
         </div>
       </form>
     </mat-card>

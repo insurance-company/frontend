@@ -1,7 +1,8 @@
-<div class="create-package-button-wrapper" *ngIf="userRole == 'ADMIN'">
-  <button (click)="openDialog()" class="create-button">Kreiraj paket</button>
-</div>
-<div class="table">
+<div class="content-wrapper">
+  <div class="create-package-button-wrapper" *ngIf="userRole == 'ADMIN'">
+    <button (click)="openDialog()" class="create-button">KREIRAJ PAKET</button>
+  </div>
+  <div class="table">
     <mat-table #table [dataSource]="aidPackages">
       <ng-container matColumnDef="tip">
         <mat-header-cell *matHeaderCellDef>Tip</mat-header-cell>
@@ -36,4 +37,5 @@
       (page)="onPageChanged($event)"
       [pageIndex]="pageNumber"
       >
-    </mat-paginator>
+  </mat-paginator>
+</div>

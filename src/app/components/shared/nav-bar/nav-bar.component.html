@@ -1,6 +1,6 @@
 <div class="navbar">
     <div *ngIf="isLoggedIn" routerLink="profil" class="user" (click)="onClick()">{{fullname}}</div>
-    <div *ngIf="!isLoggedIn" routerLink="registracija" class="user" (click)="onClick()">Registracija</div>
-    <div *ngIf="!isLoggedIn" routerLink="login" class="user" (click)="onClick()">Prijava</div>
+    <div *ngIf="!isLoggedIn" routerLink="registracija" class="user" (click)="onClick()">REGISTRACIJA</div>
+    <div *ngIf="!isLoggedIn" routerLink="login" class="user" (click)="onClick()">PRIJAVA</div>
     <div *ngIf="isLoggedIn" class="user" (click)="logout()" (click)="onClick()">Odjavi se</div>
 </div>

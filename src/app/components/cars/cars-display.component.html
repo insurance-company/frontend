@@ -1,7 +1,8 @@
-<div class="create-package-button-wrapper">
-  <button  class="create-button" (click)="openDialog()">Dodaj</button>
-</div>
-<div class="table">
+<div class="content-wrapper">
+  <div class="create-package-button-wrapper">
+    <button  class="create-button" (click)="openDialog()">DODAJ</button>
+  </div>
+  <div class="table">
     <mat-table #table [dataSource]="cars">
       <ng-container matColumnDef="registerNumber">
         <mat-header-cell *matHeaderCellDef>Registarska oznaka</mat-header-cell>
@@ -29,3 +30,5 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
+  </div>
+</div>

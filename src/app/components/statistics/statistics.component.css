@@ -1,12 +1,15 @@
 .statistics-wrapper{
     height: 100%;
     overflow-y: scroll;
+    margin-left: 5%;
+    margin-top: -50px;
 }
 
 .size {
+    justify-content: center;
     background-color: #fefefe;
     border: 1px solid white;
     width: 80%;
     height: 250px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }

@@ -1,13 +1,26 @@
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .create-package-button-wrapper{
     display: flex;
     justify-content: center;
-    padding: 20px
+    padding: 20px;
+    box-shadow: black;
 }
 
 .create-button{
     padding: 10px;
-    border-radius: 1em;
+    border-radius: 15px;
     background-color: darkblue;
+    font-size: 1rem;
     color: white;
     cursor: pointer;
 }

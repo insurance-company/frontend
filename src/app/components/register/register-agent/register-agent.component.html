@@ -1,4 +1,4 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="content-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <form class="example-form" [formGroup]="registerForm">
         <mat-card-content>
@@ -75,7 +75,7 @@
             </div>
         </mat-card-content>
         <div class="button">
-            <button (click)="onSubmit()" [disabled]="registerForm.invalid" mat-stroked-button color="accent" class="btn-block">Registruj</button>
+            <button type="button" (click)="onSubmit()" [disabled]="registerForm.invalid" mat-stroked-button color="accent" class="btn-block">Registruj</button>
         </div>
       </form>
     </mat-card>

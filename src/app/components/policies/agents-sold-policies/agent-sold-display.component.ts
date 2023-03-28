@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PolicyService } from 'src/app/services/policy.service';
 
 @Component({
-  selector: 'users-policies-display',
+  selector: 'agent-sold-policies-display',
   templateUrl: './agent-sold-policies-display.component.html',
   styleUrls: ['./agent-sold-policies-display-component.css']
 })

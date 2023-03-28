@@ -1,0 +1,10 @@
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table{
+    margin-left: 5%;
+    margin-right: 5%;
+}

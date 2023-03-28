@@ -1,27 +1,31 @@
-<mat-table #table [dataSource]="customers">
-    <ng-container matColumnDef="ime">
-        <mat-header-cell *matHeaderCellDef>Ime i prezime</mat-header-cell>
-        <mat-cell *matCellDef="let item">{{ item.firstName }} {{ item.lastName }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="jmbg">
-        <mat-header-cell *matHeaderCellDef>JMBG</mat-header-cell>
-        <mat-cell *matCellDef="let item">{{ item.uniqueMasterCitizenNumber }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="brojTelefona">
-        <mat-header-cell *matHeaderCellDef>Broj telefona</mat-header-cell>
-        <mat-cell *matCellDef="let item">{{ item.phoneNumber }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
-        <mat-cell *matCellDef="let item">{{ item.email }}</mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-  </mat-table>
-  <mat-paginator
-  [pageSize]="4"
-  [length]="totalCount"
-  (page)="onPageChanged($event)"
-  [pageIndex]="pageNumber"
-  >
-</mat-paginator>
+<div class="content-wrapper">
+    <div class="table">
+        <mat-table #table [dataSource]="customers">
+            <ng-container matColumnDef="ime">
+                <mat-header-cell *matHeaderCellDef>Ime i prezime</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{ item.firstName }} {{ item.lastName }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="jmbg">
+                <mat-header-cell *matHeaderCellDef>JMBG</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{ item.uniqueMasterCitizenNumber }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="brojTelefona">
+                <mat-header-cell *matHeaderCellDef>Broj telefona</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{ item.phoneNumber }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{ item.email }}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator
+        [pageSize]="4"
+        [length]="totalCount"
+        (page)="onPageChanged($event)"
+        [pageIndex]="pageNumber"
+        >
+        </mat-paginator>
+    </div>
+</div>

@@ -1,3 +1,8 @@
+.register-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
 .box {
   position: relative;
   top: 0;

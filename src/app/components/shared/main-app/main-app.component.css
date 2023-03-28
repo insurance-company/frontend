@@ -29,7 +29,7 @@
   
   .router-wrapper {
     box-sizing: border-box;
-    padding: 5rem;
     height: 100%;
-    margin-left: 450px;
+    padding-left: 21rem;
+    padding-top: 5rem;
   }

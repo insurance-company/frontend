@@ -35,6 +35,10 @@ export class RegisterManagerComponent {
       }
     })
 
+    this.initForm()
+  }
+
+  initForm(){
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -63,7 +67,7 @@ export class RegisterManagerComponent {
     this.auth.registerManager(this.registerForm.value).subscribe({
       next: (res) => {
         this.toast.success({detail: "SUCCESS", summary: "Uspesna registracija menadzera!", duration: 5000});
-        console.log(res)
+        this.registerForm.reset()
       },
       error: (err) => {
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});

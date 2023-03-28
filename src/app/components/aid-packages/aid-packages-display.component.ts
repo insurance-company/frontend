@@ -82,15 +82,18 @@ export class AidPackagesDisplayComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'canceled') return;
-      this.aidPackages = new MatTableDataSource<any>()
-      this.aidPackageService.getAll(this.pageNumber).subscribe({
-        next:(res)=>{
-          this.aidPackages.data = res.data
-          this.totalCount = res.totalCount
-        }, error:(err)=>{
+      
+      window.setTimeout(() => {
+        this.aidPackages = new MatTableDataSource<any>()
+        this.aidPackageService.getAll(this.pageNumber).subscribe({
+          next:(res)=>{
+            this.aidPackages.data = res.data
+            this.totalCount = res.totalCount
+          }, error:(err)=>{
 
-        }
-      })  
+          }
+        })  
+      }, 2000)
     });
   }
 

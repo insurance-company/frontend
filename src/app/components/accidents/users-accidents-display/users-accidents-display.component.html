@@ -1,15 +1,14 @@
-<div class="wrapper">
+<div class="content-wrapper">
   <div class="report-button-wrapper">
-    <button (click)="openDialog()" class="report-button">Prijavi nesrecu</button>
+    <button (click)="openDialog()" class="report-button">PRIJAVI NESRECU</button>
   </div>
-  <div class="users-wrapper">
+  <div class="table">
     <accident *ngFor="let accident of accidents" [accident]="accident"></accident>
+    <mat-paginator
+    [pageSize]="4"
+    [length]="totalCount"
+    (page)="onPageChanged($event)"
+    [pageIndex]="pageNumber"
+    ></mat-paginator>
   </div>
-  <mat-paginator
-  [pageSize]="4"
-  [length]="totalCount"
-  (page)="onPageChanged($event)"
-  [pageIndex]="pageNumber"
-  >
-</mat-paginator>
 </div>
