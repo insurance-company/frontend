@@ -30,6 +30,7 @@
 }
 
 .table-content  {
+    min-width: 600px;
     margin-bottom: 20px;
 }
 

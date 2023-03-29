@@ -12,14 +12,14 @@
           />
        </mat-form-field>
        <div>
-          <button mat-button matStepperNext  [disabled]="!formDescription.valid">Sledece</button>
+          <button mat-button matStepperNext  [disabled]="!formDescription.valid">Sledeće</button>
        </div>
       </form>
     </mat-step>
   <mat-step>
     <form [formGroup]="formPrice">
       <mat-form-field appearance="fill">
-        <mat-label>Cena</mat-label>
+        <mat-label>Cena €</mat-label>
         <input
             matInput
             required
@@ -30,15 +30,15 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formPrice.valid">Sledece</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
+        <button mat-button matStepperNext [disabled]="!formPrice.valid">Sledeće</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <form [formGroup]="formCover">
       <mat-form-field appearance="fill">
-        <mat-label>Pokrice</mat-label>
+        <mat-label>Pokriće €</mat-label>
         <input
             matInput
             required
@@ -49,8 +49,8 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formCover.valid">Sledece</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
+        <button mat-button matStepperNext [disabled]="!formCover.valid">Sledeće</button>
       </div>
     </form>
   </mat-step>
@@ -63,13 +63,13 @@
             required
             type="number"
             min="0"
-            max="24"
+            max="48"
             formControlName="durationInMonths"
           />
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
         <button mat-button matStepperNext mat-dialog-close="create" [disabled]="!formDurationInMonths.valid" (click)="Create()">Kreiraj</button>
       </div>
     </form>

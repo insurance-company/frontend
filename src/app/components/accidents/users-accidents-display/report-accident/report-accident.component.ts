@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastComponent, NgToastService } from 'ng-angular-popup';
 import { CarService } from 'src/app/services/car.service';
@@ -32,7 +32,7 @@ export class ReportAccidentComponent implements OnInit {
   rowHovered : boolean = false
   displayedColumns: string[] = ["car", "description", "cover"]
   constructor(private policyService: PolicyService, private accidentService: AccidentService, private toast: NgToastService){}
-
+  onSubmit = new EventEmitter()
   
   formDate : FormGroup = new FormGroup({
     date: new FormControl(null, [Validators.required, timeValidator]),
@@ -58,6 +58,7 @@ export class ReportAccidentComponent implements OnInit {
     this.accidentService.create({id: 0, towingDuration: -1, towingStartTime: new Date(), date: this.formDate.controls['date'].value, description: this.formDescription.controls['description'].value, policyCarId: this.selectedPolicyCarId, policyAidPackageId: this.selectedPolicyAidPackageId, towTruckId: -1, status: 2}).subscribe({
         next:(res)=>{
           this.toast.success({detail: "SUCCESS", summary: "Uspesna prijava nesrece!", duration: 5000});
+          this.onSubmit.emit()
         }, error:(err)=>{
 
         }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { AidPackageService } from 'src/app/services/aidPackage.service';
@@ -14,7 +14,7 @@ export class CreateCarComponent implements OnInit {
 
 
   constructor(private carService: CarService, private toast: NgToastService){}
-
+  onSubmit = new EventEmitter()
   
   formRegisterNumber = new FormGroup({
     registerNumber: new FormControl("", Validators.required),
@@ -40,6 +40,7 @@ export class CreateCarComponent implements OnInit {
     this.carService.Create({id: 0, registerNumber: this.formRegisterNumber.controls.registerNumber.value?.toString() , brand: this.formBrand.controls['brand'].value, model: this.formModel.controls['model'].value, years: this.formYears.controls['years'].value}).subscribe({
       next: (res) =>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno dodat novi automobil!", duration: 5000});
+        this.onSubmit.emit()
       }, error: (err) =>{
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});
       }

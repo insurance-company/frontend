@@ -1,8 +1,8 @@
 <div class="sidebar-wrapper">
-    <div routerLink='paketi-pomoci' class="sidebar-option" [ngClass]="{'active' : active == 1}" (click)="active = 1">PAKETI POMOCI</div>
+    <div routerLink='paketi-pomoci' class="sidebar-option" [ngClass]="{'active' : active == 1}" (click)="active = 1">PAKETI POMOĆI</div>
     <div routerLink='filijale' class="sidebar-option" [ngClass]="{'active' : active == 2}" (click)="active = 2">FILIJALE</div>
-    <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='CUSTOMER'" [ngClass]="{'active' : active == 3}" (click)="active = 3">NESRECE</div>
-    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='MANAGER'" [ngClass]="{'active' : active == 4}" (click)="active = 4">PRIJAVLJENE NESRECE</div>
+    <div routerLink="nesrece"class="sidebar-option" *ngIf="userRole=='CUSTOMER'" [ngClass]="{'active' : active == 3}" (click)="active = 3">NESREĆE</div>
+    <div routerLink="prijavljene-nesrece"class="sidebar-option" *ngIf="userRole=='MANAGER'" [ngClass]="{'active' : active == 4}" (click)="active = 4">PRIJAVLJENE NESREĆE</div>
     <div routerLink="kupci" class="sidebar-option" *ngIf="userRole=='MANAGER' || userRole == 'AGENT'" [ngClass]="{'active' : active == 5}" (click)="active = 5">KUPCI</div>
     <div routerLink="polise" class="sidebar-option" *ngIf="userRole == 'CUSTOMER'" [ngClass]="{'active' : active == 6}" (click)="active = 6">POLISE</div>
     <div routerLink="potpisane-polise" class="sidebar-option" *ngIf="userRole == 'AGENT'" [ngClass]="{'active' : active == 7}" (click)="active = 7">POTPISANE POLISE</div>

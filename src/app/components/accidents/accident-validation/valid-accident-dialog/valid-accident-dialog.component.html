@@ -1,8 +1,8 @@
 <mat-dialog-content class="content">
   <button class="close" mat-button mat-dialog-close="canceled">X</button>
   <div class="buttons" *ngIf="!towTruck">
-    <button class="button" (click)="bookTowTruck()">ANGAZUJ SLEPER</button>
-    <button class="button" mat-dialog-close="withoutTowTruck">BEZ SLEPERA</button>
+    <button class="button" (click)="bookTowTruck()">ANGAŽUJ ŠLEPER</button>
+    <button class="button" mat-dialog-close="withoutTowTruck">BEZ ŠLEPERA</button>
   </div>
   <mat-stepper orientation="horizontal" [linear]="true" *ngIf="towTruck">
     <mat-step>
@@ -18,14 +18,14 @@
           <mat-error *ngIf="startTimeForm.controls['startTime'].dirty && !startTimeForm.hasError('required', 'startTime')">Izaberite datum i vreme u buducnosti</mat-error>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext [disabled]="!startTimeForm.valid">Sledece</button>
+          <button mat-button matStepperNext [disabled]="!startTimeForm.valid">Sledeće</button>
         </div>
       </form>
     </mat-step>
   <mat-step>
     <form [formGroup]="durationForm">
       <mat-form-field appearance="fill">
-        <mat-label>Trajanje (u satima):</mat-label>
+        <mat-label>Trajanje u satima:</mat-label>
         <input formControlName="duration"
         matInput
         required
@@ -35,8 +35,8 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext (click)="findAvailableTowTrucks()" [disabled]="!durationForm.valid">Sledece</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
+        <button mat-button matStepperNext (click)="findAvailableTowTrucks()" [disabled]="!durationForm.valid">Sledeće</button>
       </div>
     </form>
   </mat-step>
@@ -44,20 +44,20 @@
     <div class="table-content">
       <mat-table #table [dataSource]="towTrucks" class="table">
         <ng-container matColumnDef="towingService">
-          <mat-header-cell *matHeaderCellDef>Slep sluzba</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{ item.towingService.address }}</mat-cell>
+          <mat-header-cell *matHeaderCellDef>Šlep služba</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{item.towingService.address}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="width">
-          <mat-header-cell *matHeaderCellDef>Sirina</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{item.width}}m</mat-cell>
+          <mat-header-cell *matHeaderCellDef>Širina m</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{item.width}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="length">
-          <mat-header-cell *matHeaderCellDef>Duzina</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{item.length}}m</mat-cell>
+          <mat-header-cell *matHeaderCellDef>Dužina m</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{item.length}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="transportCapacity">
-          <mat-header-cell *matHeaderCellDef>Kapacitet</mat-header-cell>
-          <mat-cell *matCellDef="let item">{{item.transportCapacity}}t</mat-cell>
+          <mat-header-cell *matHeaderCellDef>Kapacitet t</mat-header-cell>
+          <mat-cell *matCellDef="let item">{{item.transportCapacity}}</mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns" class="mat-row" (click)="selectRow(row)"
@@ -67,8 +67,8 @@
       </mat-table>
     </div>
     <div>
-      <button mat-button matStepperPrevious>Nazad</button>
-      <button mat-button matStepperNext (click)="validate()"  mat-button [disabled]="selectedTruckId == -1">Angazuj sleper</button>
+      <button mat-button matStepperPrevious>Prethodno</button>
+      <button mat-button matStepperNext (click)="validate()"  mat-button [disabled]="selectedTruckId == -1">Angažuj</button>
     </div>
   </mat-step>
   </mat-stepper>

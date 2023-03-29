@@ -73,20 +73,18 @@ export class BranchesDisplayComponent implements OnInit {
     let dialogRef = this.dialog.open(CreateBranchComponent, {
       disableClose: true,
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'canceled') return;
-      window.setTimeout(() => {
-        this.branches = new MatTableDataSource<IBranch>()
-        this.branchService.getAll(this.pageNumber).subscribe({
-          next:(res)=>{
-            this.branches.data = res.data
-            this.totalCount = res.totalCount
-          }, error:(err)=>{
-  
-          }
-        })  
-      }, 2000)
-  })
+
+    dialogRef.componentInstance.onSubmit.subscribe(() => {
+      this.branches = new MatTableDataSource<IBranch>()
+      this.branchService.getAll(this.pageNumber).subscribe({
+        next:(res)=>{
+          this.branches.data = res.data
+          this.totalCount = res.totalCount
+        }, error:(err)=>{
+
+        }
+      })  
+    })     
   }
 
   openUpdateDialog(row: any){

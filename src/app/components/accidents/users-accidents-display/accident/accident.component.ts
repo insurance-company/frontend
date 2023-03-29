@@ -18,7 +18,7 @@ export class AccidentComponent implements OnInit {
   ngOnInit(): void {
     if (this.accident.status == "0") this.status = "VALIDNA"
     else if (this.accident.status == "1") this.status = "NEVALIDNA"
-    else this.status = "CEKA NA VALIDACIJU"
+    else this.status = "ČEKA NA VALIDACIJU"
   }
 
 }

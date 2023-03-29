@@ -40,9 +40,9 @@
                     <mat-error *ngIf="registerForm.hasError('required', 'address.city')">Grad je obavezan</mat-error>
                 </mat-form-field>
                 <mat-form-field class="width-50 ml-2">
-                    <mat-label>Drzava</mat-label>
+                    <mat-label>Država</mat-label>
                     <input formControlName="country" matInput>
-                    <mat-error *ngIf="registerForm.hasError('required', 'address.country')">Drzava je obavezna</mat-error>
+                    <mat-error *ngIf="registerForm.hasError('required', 'address.country')">Država je obavezna</mat-error>
                 </mat-form-field>
             </div>
             <mat-form-field class="width-50">
@@ -51,7 +51,7 @@
                 <mat-error *ngIf="registerForm.controls['licenceNumber'].dirty && registerForm.hasError('required', 'licenceNumber')">Broj Licence je obavezan</mat-error>
             </mat-form-field>
             <mat-form-field class="width-50 ml-2">
-                <mat-label>Sef</mat-label>
+                <mat-label>Šef</mat-label>
                 <mat-select formControlName="bossId">
                   <mat-option *ngFor="let worker of workers" value="{{worker.id}}">{{ worker.firstName }} {{worker.lastName}}</mat-option>
                 </mat-select>
@@ -70,8 +70,8 @@
                 <mat-error *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')">Lozinka je obavezna</mat-error>
             </mat-form-field>
             <div class="gender">
-                <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="0">MUSKO
-                <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="1">ZENSKO
+                <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="0">MUŠKO
+                <input formControlName="gender" name="gender" ng-control="options" type="radio" [value]="1">ŽENSKO
             </div>
         </mat-card-content>
         <div class="button">

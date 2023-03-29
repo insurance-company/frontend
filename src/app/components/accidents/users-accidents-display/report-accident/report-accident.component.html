@@ -12,11 +12,11 @@
             formControlName="date"
           />
           <mat-error *ngIf="formDate.controls['date'].dirty && formDate.hasError('required', 'date')">Unesite datum</mat-error>
-          <mat-error *ngIf="formDate.controls['date'].dirty && !formDate.hasError('required', 'date')">Izaberite datum u proslosti</mat-error>
+          <mat-error *ngIf="formDate.controls['date'].dirty && !formDate.hasError('required', 'date')">Izaberite datum u prošlosti</mat-error>
         </mat-form-field>
 
         <div>
-          <button mat-button matStepperNext [disabled]="!formDate.valid">Sledece</button>
+          <button mat-button matStepperNext [disabled]="!formDate.valid">Sledeće</button>
         </div>
       </form>
     </mat-step>
@@ -32,7 +32,7 @@
           <mat-cell *matCellDef="let item">{{ item.aidPackage.description }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="cover">
-          <mat-header-cell *matHeaderCellDef>Pokrice</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>Pokriće €</mat-header-cell>
           <mat-cell *matCellDef="let item">{{ item.aidPackage.cover }}</mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -43,8 +43,8 @@
       </mat-table>
       </div>
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="selectedPolicyCarId == -1">Sledece</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
+        <button mat-button matStepperNext [disabled]="selectedPolicyCarId == -1">Sledeće</button>
       </div>
   </mat-step>
 
@@ -61,7 +61,7 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
         <button mat-button matStepperNext mat-dialog-close="report" (click)="report()" [disabled]="!formDescription.valid">Prijavi</button>
       </div>
     </form>

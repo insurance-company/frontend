@@ -73,7 +73,7 @@ export class AccidentValidationComponent implements OnInit {
         accident.towTruckId = -1
         this.accidentService.validate(accident).subscribe({
           next : (res) => {
-            this.toast.success({detail: "SUCCESS", summary:"Nesreca uspesno validirana!"})
+            this.toast.success({detail: "SUCCESS", summary:"Nesreća uspesno validirana!"})
             this.removeAccident()
           }, error : (err) => {
             console.log("error")

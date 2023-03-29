@@ -80,21 +80,18 @@ export class AidPackagesDisplayComponent implements OnInit {
     let dialogRef = this.dialog.open(CreateAidPackageComponent, {
       disableClose: true,
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'canceled') return;
-      
-      window.setTimeout(() => {
-        this.aidPackages = new MatTableDataSource<any>()
-        this.aidPackageService.getAll(this.pageNumber).subscribe({
-          next:(res)=>{
-            this.aidPackages.data = res.data
-            this.totalCount = res.totalCount
-          }, error:(err)=>{
+     
+    dialogRef.componentInstance.onSubmit.subscribe(() => {
+      this.aidPackages = new MatTableDataSource<any>()
+      this.aidPackageService.getAll(this.pageNumber).subscribe({
+        next:(res)=>{
+          this.aidPackages.data = res.data
+          this.totalCount = res.totalCount
+        }, error:(err)=>{
 
-          }
-        })  
-      }, 2000)
-    });
+        }
+      })  
+    })
   }
 
   openUpdateDialog(row: any){

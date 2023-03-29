@@ -139,7 +139,7 @@ export class StatisticsComponent implements OnInit {
         ],
         datasets: [
           {
-            label: 'Broj prijavljenih nesreca',
+            label: 'Broj prijavljenih nesreća',
             data: this.chart2_data,
             backgroundColor: ['rgba(255, 99, 132, 0.2)'],
             borderColor: [
@@ -172,7 +172,7 @@ export class StatisticsComponent implements OnInit {
             font: {
               size: 20,
             },
-            text: 'Broj prijavljenih nesreca',
+            text: 'Broj prijavljenih nesreća',
             padding: {
               top: 10,
             },
@@ -190,10 +190,10 @@ export class StatisticsComponent implements OnInit {
       {
         type: 'bar',
         data: {
-          labels: ['VALIDNE', 'NEVALIDNE', "CEKAJU NA VALIDACIJU"],
+          labels: ['VALIDNE', 'NEVALIDNE', "ČEKAJU NA VALIDACIJU"],
           datasets: [
             {
-              label: 'Ukupan broj nesreca prema statusu',
+              label: 'Ukupan broj nesreća prema statusu',
               data: this.chart3_data,
               backgroundColor: [
                 'rgba(255, 99, 132, 1)',
@@ -228,7 +228,7 @@ export class StatisticsComponent implements OnInit {
             title: {
               color: 'gray',
               display: true,
-              text: 'Ukupan broj nesreca prema statusu',
+              text: 'Ukupan broj nesreća prema statusu',
               font: {
                 size: 20,
               },

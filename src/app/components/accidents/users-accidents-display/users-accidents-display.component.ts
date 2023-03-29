@@ -45,8 +45,7 @@ export class UsersAccidentsDisplayComponent implements OnInit {
     let dialogRef = this.dialog.open(ReportAccidentComponent, {
       disableClose: true,
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'canceled') return;
+    dialogRef.componentInstance.onSubmit.subscribe(() => {
       this.accidents = []
       this.pageNumber = 0
       this.accidentService.getAllByUserId(this.pageNumber).subscribe({
@@ -59,5 +58,5 @@ export class UsersAccidentsDisplayComponent implements OnInit {
       })  
     });
   }
-
+  
 }

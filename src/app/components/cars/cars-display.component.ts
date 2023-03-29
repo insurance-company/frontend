@@ -28,22 +28,6 @@ export class CarsDisplayComponent implements OnInit {
    })
   }
 
-  
-
-  /*addCar(row: any){
-    let dialogRef = this.dialog.open(BuyAidPackageComponent, {
-      disableClose: true,
-    });
-    dialogRef.componentInstance.description = row.description
-    dialogRef.componentInstance.price = row.price
-    dialogRef.componentInstance.cover = row.cover
-    dialogRef.componentInstance.aidPackageId = row.id
-    dialogRef.componentInstance.durationInMonths = row.durationInMonths
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'canceled') return;
-      
-    });
-  }*/
 
   Remove(row: any){
     console.log(row.id)
@@ -65,19 +49,15 @@ export class CarsDisplayComponent implements OnInit {
     let dialogRef = this.dialog.open(CreateCarComponent, {
       disableClose: true,
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result === 'canceled') return;
+    dialogRef.componentInstance.onSubmit.subscribe(() => {
       this.cars = new MatTableDataSource<any>()
-      window.setTimeout(() => { 
-        this.carService.getAllByOwner().subscribe({
-          next:(res)=>{
-            this.cars.data = res
-          }, error:(err)=>{
+      this.carService.getAllByOwner().subscribe({
+        next:(res)=>{
+          this.cars.data = res
+        }, error:(err)=>{
 
         }})
-        
-      }, 1000)
-      })  
+    })   
   }
 
   openUpdateDialog(row: any){

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { AidPackageService } from 'src/app/services/aidPackage.service';
@@ -14,6 +14,7 @@ export class CreateBranchComponent implements OnInit {
 
 
   constructor(private branchService: BranchService, private toast: NgToastService){}
+  onSubmit = new EventEmitter()
 
   
   formStreet: FormGroup = new FormGroup({
@@ -40,6 +41,7 @@ export class CreateBranchComponent implements OnInit {
     this.branchService.Create({id: 0, address: {street: this.formStreet.controls['street'].value, number: this.formNumber.controls['number'].value, city: this.formCity.controls['city'].value, country: this.formCountry.controls['country'].value}, agencyId: -1}).subscribe({
       next: (res) =>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno kreiranje filijale!", duration: 5000});
+        this.onSubmit.emit()
       }, error: (err) =>{
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});
       }

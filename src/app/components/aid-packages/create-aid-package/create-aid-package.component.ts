@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { AidPackageService } from 'src/app/services/aidPackage.service';
@@ -11,9 +11,8 @@ import { __values } from 'tslib';
 })
 export class CreateAidPackageComponent implements OnInit {
 
-
   constructor(private aidPackageService: AidPackageService, private toast: NgToastService){}
-
+  onSubmit = new EventEmitter()
   
   formDescription = new FormGroup({
     description: new FormControl("", Validators.required),
@@ -39,6 +38,7 @@ export class CreateAidPackageComponent implements OnInit {
     this.aidPackageService.Create({id: 0, description: this.formDescription.controls.description.value?.toString() , price: this.formPrice.controls['price'].value, cover: this.formCover.controls['cover'].value, durationInMonths: this.formDurationInMonths.controls['durationInMonths'].value}).subscribe({
       next: (res) =>{
         this.toast.success({detail: "SUCCESS", summary: "Uspesno kreiranje paketa!", duration: 5000});
+        this.onSubmit.emit()
       }, error: (err) =>{
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});
       }

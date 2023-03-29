@@ -12,7 +12,7 @@
           />
        </mat-form-field>
        <div>
-          <button mat-button matStepperNext  [disabled]="!formStreet.valid">Sledece</button>
+          <button mat-button matStepperNext  [disabled]="!formStreet.valid">Sledeće</button>
        </div>
       </form>
     </mat-step>
@@ -29,8 +29,8 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formNumber.valid">Sledece</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
+        <button mat-button matStepperNext [disabled]="!formNumber.valid">Sledeće</button>
       </div>
     </form>
   </mat-step>
@@ -47,15 +47,15 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formCity.valid">Sledece</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
+        <button mat-button matStepperNext [disabled]="!formCity.valid">Sledeće</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <form [formGroup]="formCountry">
       <mat-form-field appearance="fill">
-        <mat-label>Drzava</mat-label>
+        <mat-label>Država</mat-label>
         <input
             matInput
             required
@@ -65,7 +65,7 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Nazad</button>
+        <button mat-button matStepperPrevious>Prethodno</button>
         <button mat-button matStepperNext mat-dialog-close="create" [disabled]="!formCountry.valid" (click)="Create()">Kreiraj</button>
       </div>
     </form>
