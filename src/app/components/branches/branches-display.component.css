@@ -25,7 +25,11 @@
     cursor: pointer;
 }
 
-.update-button{
+.updateDeleteButton{
     display: flex;
     flex-direction: row-reverse;
+}
+
+.deleteButton{
+    color: red !important;
 }

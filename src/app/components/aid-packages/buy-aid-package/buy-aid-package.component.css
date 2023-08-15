@@ -1,3 +1,7 @@
+.content {
+    overflow-y: hidden;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;

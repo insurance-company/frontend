@@ -57,7 +57,7 @@ export class BranchesDisplayComponent implements OnInit {
     console.log(row.id)
     this.branchService.Remove(row.id).subscribe({
       next:(res)=>{
-        this.toast.success({detail: "SUCCESS", summary: "Uspesno izbrisana filijala!", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešno izbrisana filijala!", duration: 5000});
         this.branchService.getAll(this.pageNumber).subscribe(res=>{
           this.branches.data = res.data
           this.totalCount = res.totalCount

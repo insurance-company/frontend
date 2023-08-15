@@ -64,7 +64,7 @@ export class AidPackagesDisplayComponent implements OnInit {
     console.log(row.id)
     this.aidPackageService.Remove(row.id).subscribe({
       next:(res)=>{
-        this.toast.success({detail: "SUCCESS", summary: "Uspesno izbrisan paket pomoci!", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešno izbrisan paket pomoći!", duration: 5000});
         this.aidPackageService.getAll(this.pageNumber).subscribe(res=>{
           this.aidPackages = new MatTableDataSource(res.data);
           this.totalCount = res.totalCount

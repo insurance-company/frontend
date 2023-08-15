@@ -12,7 +12,7 @@
           />
        </mat-form-field>
        <div>
-          <button mat-button matStepperNext  [disabled]="!formRegisterNumber.valid">Sledece</button>
+          <button mat-button matStepperNext  [disabled]="!formRegisterNumber.valid">Sledeće</button>
        </div>
       </form>
     </mat-step>
@@ -48,14 +48,14 @@
 
       <div>
         <button mat-button matStepperPrevious>Nazad</button>
-        <button mat-button matStepperNext [disabled]="!formModel.valid">Sledece</button>
+        <button mat-button matStepperNext [disabled]="!formModel.valid">Sledeće</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <form [formGroup]="formYears">
       <mat-form-field appearance="fill">
-        <mat-label>Godiste</mat-label>
+        <mat-label>Godište</mat-label>
         <input
             matInput
             required

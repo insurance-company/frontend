@@ -28,7 +28,7 @@ export class PolicyComponent implements OnInit {
     this.signSpinner = true
     this.policyService.signOrDecline(policy, true).subscribe({
       next : (res) => {
-        this.toast.success({detail: "SUCCESS", summary: "Uspesno potpisana polisa!", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešno potpisana polisa!", duration: 5000});
         this.removePolicyEvent.emit({"aidPackageId": policy.aidPackageId, "carId": policy.carId});
         this.openDialogEvent.emit({"aidPackageId": policy.aidPackageId, "carId": policy.carId})
         console.log("success");
@@ -43,7 +43,7 @@ export class PolicyComponent implements OnInit {
     this.declineSpinner = true
     this.policyService.signOrDecline(policy, false).subscribe({
       next : (res) => {
-        this.toast.success({detail: "SUCCESS", summary: "Uspesno odbijena polisa", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešno odbijena polisa!", duration: 5000});
         this.removePolicyEvent.emit({aidPackageId: policy.aidPackageId, carId: policy.carId});
       }, error: (err) => {
         console.log("err");

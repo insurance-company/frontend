@@ -17,14 +17,14 @@
         <mat-cell *matCellDef="let item">{{ item.model }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="years">
-        <mat-header-cell *matHeaderCellDef>Godiste</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Godište</mat-header-cell>
         <mat-cell *matCellDef="let item">{{ item.years }}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell  *matHeaderCellDef ></mat-header-cell>
         <mat-cell *matCellDef="let row" >
              <button  mat-button (click)="openUpdateDialog(row)">IZMENI</button>
-             <button  mat-button (click)="Remove(row)" class="deleteButton">IZBRISI</button>
+             <button  mat-button (click)="Remove(row)" class="deleteButton">IZBRIŠI</button>
         </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

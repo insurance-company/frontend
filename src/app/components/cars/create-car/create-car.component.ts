@@ -39,7 +39,7 @@ export class CreateCarComponent implements OnInit {
   Create(){
     this.carService.Create({id: 0, registerNumber: this.formRegisterNumber.controls.registerNumber.value?.toString() , brand: this.formBrand.controls['brand'].value, model: this.formModel.controls['model'].value, years: this.formYears.controls['years'].value}).subscribe({
       next: (res) =>{
-        this.toast.success({detail: "SUCCESS", summary: "Uspesno dodat novi automobil!", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešno dodat novi automobil!", duration: 5000});
         this.onSubmit.emit()
       }, error: (err) =>{
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});

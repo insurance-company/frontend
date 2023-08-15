@@ -33,7 +33,7 @@ export class CarsDisplayComponent implements OnInit {
     console.log(row.id)
     this.carService.Remove(row.id).subscribe({
       next:(res)=>{
-        this.toast.success({detail: "SUCCESS", summary: "Uspesno izbrisan automobil!", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešno izbrisan automobil!", duration: 5000});
         this.carService.getAllByOwner().subscribe(res=>{
           this.cars = new MatTableDataSource(res);
          })

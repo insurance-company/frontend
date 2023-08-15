@@ -44,7 +44,7 @@ export class UpdateCarComponent implements OnInit {
   Update(){
     this.carService.Update(this.formCar.value).subscribe({
       next: (res) => {
-        this.toast.success({detail: "SUCCESS", summary: "Uspesna izmena automobila!", duration: 5000});
+        this.toast.success({detail: "SUCCESS", summary: "Uspešna izmena automobila!", duration: 5000});
       },
       error: (err)=>{
         this.toast.error({detail: "ERROR", summary: err.error, duration: 5000});

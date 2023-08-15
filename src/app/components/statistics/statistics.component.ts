@@ -75,7 +75,7 @@ export class StatisticsComponent implements OnInit {
         ],
         datasets: [
           {
-            label: 'Broj prodatih polisa',
+            label: 'Broj potpisanih polisa',
             data: this.chart1_data,
             backgroundColor: ['rgba(255, 99, 132, 0.2)'],
             borderColor: [
@@ -108,7 +108,7 @@ export class StatisticsComponent implements OnInit {
             font: {
               size: 20,
             },
-            text: 'Broj prodatih polisa',
+            text: 'Broj potpisanih polisa',
             padding: {
               top: 10,
             },

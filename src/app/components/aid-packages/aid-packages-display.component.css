@@ -28,3 +28,7 @@
 .deleteButton {
     color:  red !important;
 }
+
+.buyButton {
+    color: greenyellow !important;
+}
